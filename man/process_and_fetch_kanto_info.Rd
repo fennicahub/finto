@@ -2,7 +2,7 @@
 % Please edit documentation in R/process_and_fetch_kanto_info.R
 \name{process_and_fetch_kanto_info}
 \alias{process_and_fetch_kanto_info}
-\title{Process and Fetch KANTO Information with Multiple Professions}
+\title{Process and Fetch KANTO Information}
 \usage{
 process_and_fetch_kanto_info(data)
 }
@@ -15,9 +15,8 @@ A tibble with \code{asteriID}, fetched RDF data, and profession labels.
 \description{
 This function extracts Asteri IDs from the provided dataset, fetches RDF data
 from the Finto Skosmos API, and returns a cleaned tibble with the retrieved
-data. The function retains only the Asteri ID and the relevant API results.
-Additionally, it retrieves profession metadata for each profession URI and
-stores the \code{prefLabel_en} values as a comma-separated string in the \code{profession} column.
+data. The function retains the Asteri ID, the relevant API results, and
+includes profession labels as separate columns.
 }
 \examples{
 \dontrun{
