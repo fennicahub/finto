@@ -1,8 +1,8 @@
 # finto
 
-[![R-CMD-check](https://github.com/ake123/finto/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/rOpenGov/finto/actions/workflows/check-standard.yaml)
-[![issues](https://img.shields.io/github/issues/ake123/finto)](https://github.com/ake123/finto/issues)
-[![pulls](https://img.shields.io/github/issues-pr/ake123/finto)](https://github.com/ake123/finto/pulls)
+[![R-CMD-check](https://github.com/fennicahub/finto/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/fennicahub/finto/actions/workflows/check-standard.yaml)
+[![issues](https://img.shields.io/github/issues/fennicahub/finto)](https://github.com/fennicahub/finto/issues)
+[![pulls](https://img.shields.io/github/issues-pr/fennicahub/finto)](https://github.com/fennicahub/finto/pulls)
 
 
 The `finto` package provides tools to access the serivice for interoperable thesauri, ontologies and classification schemes for different subject areas. 
@@ -15,12 +15,12 @@ The devel version of finto can be installed from GitHub as follows:
 ``` r
 # Install finto if not already installed
 if (!requireNamespace("finto", quietly = TRUE)) {
-  remotes::install_github("rOpenGov/finto")
+  remotes::install_github("fennicahub/finto")
 }
 ```
 
 ``` r
-remotes::install_github("rOpenGov/finto")
+remotes::install_github("fennicahub/finto")
 ```
 
 ## Example
@@ -46,9 +46,9 @@ head(concepts)
 
 Contributions are very welcome:
 
-- [Use issue tracker](https://github.com/ropengov/finto/issues) for feedback and bug reports.
-- [Send pull requests](https://github.com/ropengov/finto/)
-- [Star us on the Github page](https://github.com/ropengov/finto/)
+- [Use issue tracker](https://github.com/fennicahub/finto/issues) for feedback and bug reports.
+- [Send pull requests](https://github.com/fennicahub/finto/)
+- [Star us on the Github page](https://github.com/fennicahub/finto/)
 
 ### Disclaimer
 
