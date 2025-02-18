@@ -47,22 +47,22 @@ fetch_profession_info <- function(concept_uri) {
 
   # Extract data safely
   rdf_tibble <- tibble(
-    uri = concept_uri,
-    prefLabel_en = extract_label(main_entry$prefLabel, "en"),
-    prefLabel_fi = extract_label(main_entry$prefLabel, "fi"),
-    prefLabel_sv = extract_label(main_entry$prefLabel, "sv"),
-    entryTerms = if (!is.null(main_entry$altLabel))
+    profession_uri = concept_uri,
+    profession_prefLabel_en = extract_label(main_entry$prefLabel, "en"),
+    profession_prefLabel_fi = extract_label(main_entry$prefLabel, "fi"),
+    profession_prefLabel_sv = extract_label(main_entry$prefLabel, "sv"),
+    profession_entryTerms = if (!is.null(main_entry$altLabel))
       paste(sapply(main_entry$altLabel, function(x) x$value), collapse = ", ") else NA_character_,
-    belongsToGroup = if (!is.null(main_entry$inScheme$uri)) main_entry$inScheme$uri else NA_character_,
-    broader = if (!is.null(main_entry$broader$uri)) main_entry$broader$uri else NA_character_,
-    narrower = if (!is.null(main_entry$narrower$uri)) main_entry$narrower$uri else NA_character_,
-    related = if (!is.null(main_entry$related$uri)) main_entry$related$uri else NA_character_,
-    created = if (!is.null(main_entry$`dct:created`$value)) main_entry$`dct:created`$value else NA_character_,
-    modified = if (!is.null(main_entry$`dct:modified`$value)) main_entry$`dct:modified`$value else NA_character_,
-    closeMatch = if (!is.null(main_entry$closeMatch$uri)) main_entry$closeMatch$uri else NA_character_,
-    source = if (!is.null(main_entry$`dc11:source`))
+    profession_belongsToGroup = if (!is.null(main_entry$inScheme$uri)) main_entry$inScheme$uri else NA_character_,
+    profession_broader = if (!is.null(main_entry$broader$uri)) main_entry$broader$uri else NA_character_,
+    profession_narrower = if (!is.null(main_entry$narrower$uri)) main_entry$narrower$uri else NA_character_,
+    profession_related = if (!is.null(main_entry$related$uri)) main_entry$related$uri else NA_character_,
+    profession_created = if (!is.null(main_entry$`dct:created`$value)) main_entry$`dct:created`$value else NA_character_,
+    profession_modified = if (!is.null(main_entry$`dct:modified`$value)) main_entry$`dct:modified`$value else NA_character_,
+    profession_closeMatch = if (!is.null(main_entry$closeMatch$uri)) main_entry$closeMatch$uri else NA_character_,
+    profession_source = if (!is.null(main_entry$`dc11:source`))
       paste(sapply(main_entry$`dc11:source`, function(x) x$value), collapse = ", ") else NA_character_,
-    downloadFormats = "RDF/XML, TURTLE, JSON-LD" # Static formats
+    profession_downloadFormats = "RDF/XML, TURTLE, JSON-LD" # Static formats
   )
 
   return(rdf_tibble)
