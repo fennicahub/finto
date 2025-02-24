@@ -67,19 +67,6 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">narrower_concepts</span> <span class="op">&lt;-</span> <span class="fu">get_narrower_concepts</span><span class="op">(</span>vocid <span class="op">=</span> <span class="st">"yso"</span>,</span></span>
 <span class="r-in"><span>uri <span class="op">=</span> <span class="st">"http://www.yso.fi/onto/yso/p690"</span>, lang <span class="op">=</span> <span class="st">"fi"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> List of 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ @context:List of 6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ skos     : chr "http://www.w3.org/2004/02/skos/core#"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ uri      : chr "@id"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ type     : chr "@type"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ prefLabel: chr "skos:prefLabel"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ narrower : chr "skos:narrower"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ @language: chr "fi"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ uri     : chr "http://www.yso.fi/onto/yso/p690"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ narrower:'data.frame':	20 obs. of  2 variables:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ uri      : chr [1:20] "http://www.yso.fi/onto/yso/p27641" "http://www.yso.fi/onto/yso/p26592" "http://www.yso.fi/onto/yso/p14670" "http://www.yso.fi/onto/yso/p22929" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ prefLabel: chr [1:20] "rajapinnat (tietojenkäsittely)" "tietokoneohjelmat" "hypermedia" "ontologiat (tiedonhallinta)" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">narrower_concepts</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    uri                               prefLabel                     </span>
