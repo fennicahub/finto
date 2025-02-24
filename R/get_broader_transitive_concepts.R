@@ -32,6 +32,7 @@ get_broader_transitive_concepts <- function(vocid, uri, lang = NULL) {
 
   # Parse the response content using jsonlite
   data <- jsonlite::fromJSON(httr::content(response, "text", encoding = "UTF-8"))
+  #print(data)
 
   # Structure the output as a tibble
   broader_transitive <- tibble::tibble(

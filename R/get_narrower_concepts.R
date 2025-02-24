@@ -41,7 +41,7 @@ get_narrower_concepts <- function(vocid, uri, lang = NULL) {
   data <- jsonlite::fromJSON(httr::content(response, "text", encoding = "UTF-8"))
 
   # Print the structure of the parsed data for debugging
-  print(str(data))  # Debugging line to inspect the structure
+  #print((data))  # Debugging line to inspect the structure
 
   # Check if there are no narrower concepts
   if (nrow(data$narrower) == 0) {

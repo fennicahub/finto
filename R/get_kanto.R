@@ -11,10 +11,10 @@
 #' @importFrom dplyr mutate select coalesce rowwise filter distinct slice
 #' @examples
 #' \dontrun{
-#' results <- process_and_fetch_kanto_info(my_data)
+#' results <- get_kanto(my_data)
 #' }
 #' @export
-process_and_fetch_kanto_info <- function(data) {
+get_kanto <- function(data) {
   # Step 1: Extract numeric asteriIDs from Code_1000 and Code_7001
   data_clean <- data %>%
     dplyr::mutate(

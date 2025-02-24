@@ -24,7 +24,7 @@ get_concepts_by_letter <- function(vocid, letter, lang = NULL) {
 
   # Request concepts for the given letter
   response <- finto_api_request(paste0(vocid, "/index/", letter), params)
-  print
+  #print
 
   # Convert concepts list into a tibble
   concepts_tbl <- tibble(
