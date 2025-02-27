@@ -7,6 +7,7 @@
 #' @importFrom httr GET status_code content accept
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble tibble
+#' @importFrom dplyr add_row
 #' @examples
 #' hierarchy <- get_hierarchy(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p24489", lang = "fi")
 #' print(hierarchy)
@@ -25,12 +26,17 @@ get_hierarchy <- function(vocid, uri, lang = NULL) {
   response <- httr::GET(base_url, query = params, httr::accept("application/ld+json"))
 
   # Check for a successful response
-  if (httr::status_code(response) != 200) {
-    stop("Error: ", httr::status_code(response), " - ", httr::content(response, "text"))
+  status <- httr::status_code(response)
+  if (status == 404) {
+    message("Warning: Concept not found in the vocabulary '", vocid, "' for URI: ", uri)
+    return(tibble::tibble(uri = uri, broader = NA_character_, prefLabel = NA_character_, hasChildren = NA))
+  } else if (status != 200) {
+    warning("API request failed with status code ", status, ": ", httr::content(response, "text"))
+    return(NULL)
   }
 
   # Parse the response content using jsonlite
-  data <- jsonlite::fromJSON(httr::content(response, "text", encoding = "UTF-8"))
+  data <- jsonlite::fromJSON(httr::content(response, "text", encoding = "UTF-8"), flatten = TRUE)
 
   # Initialize a tibble to store the results
   results <- tibble::tibble(
@@ -44,24 +50,22 @@ get_hierarchy <- function(vocid, uri, lang = NULL) {
   if (!is.null(data$broaderTransitive)) {
     for (broad in names(data$broaderTransitive)) {
       broader_info <- data$broaderTransitive[[broad]]
-      results <- results %>%
-        dplyr::add_row(
-          uri = broader_info$uri,
-          broader = NA_character_,
-          prefLabel = broader_info$prefLabel,
-          hasChildren = broader_info$hasChildren
-        )
+      results <- dplyr::add_row(results,
+                                uri = broader_info$uri,
+                                broader = NA_character_,
+                                prefLabel = broader_info$prefLabel,
+                                hasChildren = broader_info$hasChildren
+      )
 
       # Extract narrower concepts
       if (!is.null(broader_info$narrower)) {
         for (narrow in broader_info$narrower$uri) {
-          results <- results %>%
-            dplyr::add_row(
-              uri = narrow,
-              broader = broader_info$uri,
-              prefLabel = broader_info$prefLabel,
-              hasChildren = FALSE
-            )
+          results <- dplyr::add_row(results,
+                                    uri = narrow,
+                                    broader = broader_info$uri,
+                                    prefLabel = broader_info$prefLabel,
+                                    hasChildren = FALSE
+          )
         }
       }
     }
