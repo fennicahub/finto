@@ -61,5 +61,6 @@ search_concepts <- function(query, lang = NULL, labellang = NULL, vocab = NULL, 
     )
   }))
 
-  return(result_data)
+  return(tibble::as_tibble(result_data))
+
 }
