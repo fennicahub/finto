@@ -8,8 +8,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr bind_rows mutate select
 #' @examples
-#' group_members_data <- get_group_members(vocid = "yso",
-#' uri = "http://www.yso.fi/onto/yso/p26580", lang = "fi")
+#' group_members_data <- get_group_members(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p26580", lang = "fi")
 #' print(head(group_members_data))
 #' @export
 get_group_members <- function(vocid, uri, lang = NULL) {

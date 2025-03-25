@@ -20,7 +20,6 @@ A tibble containing the narrower concepts (prefLabel and uri) for the specified 
 Get narrower concepts for a specific concept from the Finto Skosmos API
 }
 \examples{
-narrower_concepts <- get_narrower_concepts(vocid = "yso",
-uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
+narrower_concepts <- get_narrower_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 print(narrower_concepts)
 }

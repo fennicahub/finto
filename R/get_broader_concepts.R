@@ -8,8 +8,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble tibble
 #' @examples
-#' conepts <- get_broader_concepts(vocid = "yso",
-#' uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
+#' conepts <- get_broader_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
 #' print(conepts)
 #' @export
 get_broader_concepts <- function(vocid, uri, lang = NULL) {

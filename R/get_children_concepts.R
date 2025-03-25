@@ -8,8 +8,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble tibble
 #' @examples
-#' children <- get_children_concepts(vocid = "yso",
-#'  uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
+#' children <- get_children_concepts(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 #' print(children)
 #' @export
 get_children_concepts <- function(vocid, uri, lang = NULL) {

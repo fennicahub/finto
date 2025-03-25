@@ -1,37 +1,35 @@
-#' Process and Fetch KANTO Information
+#' Process and Fetch KANTO Information using author_id
 #'
-#' This function extracts Asteri IDs from the provided dataset, fetches RDF data
-#' from the Finto Skosmos API, and returns a cleaned tibble with the retrieved
-#' data. The function retains the Asteri ID, the relevant API results, and
-#' includes profession labels as separate columns.
+#' This function extracts Asteri IDs from the 'author_id' column,
+#' fetches RDF data from the Finto Skosmos API using those IDs,
+#' and returns a cleaned tibble with the retrieved metadata and profession labels.
 #'
-#' @param data A dataframe containing 'Code_1000' and 'Code_7001' columns.
-#' @return A tibble with `asteriID`, fetched RDF data, and profession labels.
+#' @param data A dataframe containing an 'author_id' column with values like "(FIN11)000069536".
+#' @return A tibble with `asteriID`, RDF data, and extracted profession labels.
 #' @import dplyr purrr tibble stringr tidyr
-#' @importFrom dplyr mutate select coalesce rowwise filter distinct slice
+#' @importFrom dplyr mutate select rowwise filter distinct group_by ungroup
 #' @examples
 #' \dontrun{
 #' results <- get_kanto(my_data)
 #' }
 #' @export
 get_kanto <- function(data) {
-  # Step 1: Extract numeric asteriIDs from Code_1000 and Code_7001
+  # Step 1: Extract numeric Asteri ID from 'author_id' column
   data_clean <- data %>%
     dplyr::mutate(
-      asteriID_1000 = stringr::str_extract(Code_1000, "\\d{9}"),
-      asteriID_7001 = stringr::str_extract(Code_7001, "\\d{9}"),
-      asteriID = dplyr::coalesce(asteriID_1000, asteriID_7001)  # Prioritize non-NA asteriID
+      asteriID = stringr::str_extract(author_id, "\\d{9}")
     ) %>%
-    dplyr::select(asteriID)  # Keep only asteriID
+    dplyr::filter(!is.na(asteriID)) %>%
+    dplyr::distinct(asteriID)
 
   # Step 2: Fetch RDF data for each valid asteriID
   results <- data_clean %>%
     dplyr::rowwise() %>%
     dplyr::mutate(
-      rdf_data = if (!is.na(asteriID)) {
-        list(tryCatch(
+      rdf_data = list(
+        tryCatch(
           fetch_kanto_info(asteriID) %>%
-            dplyr::filter(uri == paste0("http://urn.fi/URN:NBN:fi:au:finaf:", asteriID)),  # Keep only valid rows
+            dplyr::filter(uri == paste0("http://urn.fi/URN:NBN:fi:au:finaf:", asteriID)),
           error = function(e) tibble::tibble(
             uri = NA, type = NA, prefLabel = NA, altLabel = NA, hiddenLabel = NA,
             broader = NA, narrower = NA, related = NA, definition = NA, scopeNote = NA,
@@ -39,12 +37,12 @@ get_kanto <- function(data) {
             profession = NA, birthDate = NA, deathDate = NA, exactMatch = NA, closeMatch = NA,
             inScheme = NA, created = NA, modified = NA
           )
-        ))
-      } else list(NULL)
+        )
+      )
     ) %>%
-    tidyr::unnest(cols = c(rdf_data), keep_empty = TRUE)  # Preserve missing rows
+    tidyr::unnest(cols = c(rdf_data), keep_empty = TRUE)
 
-  # Step 3: For each profession URI, fetch the prefLabel_en
+  # Step 3: Resolve profession URIs to English labels
   results <- results %>%
     dplyr::mutate(
       profession_uris = strsplit(profession, ",\\s*")
@@ -69,7 +67,7 @@ get_kanto <- function(data) {
     dplyr::mutate(profession_labels = paste(profession_metadata_prefLabel_en, collapse = ", ")) %>%
     dplyr::ungroup()
 
-  # Step 4: Ensure the final output keeps asteriID and all other columns
+  # Step 4: Return cleaned result
   results_clean <- results %>%
     dplyr::select(asteriID, everything(), -profession_uris, -profession_metadata_prefLabel_en)
 

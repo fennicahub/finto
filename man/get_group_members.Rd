@@ -20,7 +20,6 @@ A tibble containing members associated with the specified concept group.
 Get members of a specific concept group from the Finto Skosmos API
 }
 \examples{
-group_members_data <- get_group_members(vocid = "yso",
-uri = "http://www.yso.fi/onto/yso/p26580", lang = "fi")
+group_members_data <- get_group_members(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p26580", lang = "fi")
 print(head(group_members_data))
 }

@@ -2,21 +2,20 @@
 % Please edit documentation in R/get_kanto.R
 \name{get_kanto}
 \alias{get_kanto}
-\title{Process and Fetch KANTO Information}
+\title{Process and Fetch KANTO Information using author_id}
 \usage{
 get_kanto(data)
 }
 \arguments{
-\item{data}{A dataframe containing 'Code_1000' and 'Code_7001' columns.}
+\item{data}{A dataframe containing an 'author_id' column with values like "(FIN11)000069536".}
 }
 \value{
-A tibble with \code{asteriID}, fetched RDF data, and profession labels.
+A tibble with \code{asteriID}, RDF data, and extracted profession labels.
 }
 \description{
-This function extracts Asteri IDs from the provided dataset, fetches RDF data
-from the Finto Skosmos API, and returns a cleaned tibble with the retrieved
-data. The function retains the Asteri ID, the relevant API results, and
-includes profession labels as separate columns.
+This function extracts Asteri IDs from the 'author_id' column,
+fetches RDF data from the Finto Skosmos API using those IDs,
+and returns a cleaned tibble with the retrieved metadata and profession labels.
 }
 \examples{
 \dontrun{

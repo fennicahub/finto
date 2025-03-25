@@ -20,7 +20,6 @@ A tibble containing the children concepts (prefLabel, uri, hasChildren) for the 
 Get children concepts for a specific concept from the Finto Skosmos API
 }
 \examples{
-children <- get_children_concepts(vocid = "yso",
- uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
+children <- get_children_concepts(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 print(children)
 }

@@ -29,7 +29,7 @@ head(vocabularies)
 ```
 
 To retrieve top concepts in a vocabulary
-
+ 
 ```{r message = FALSE, warning = FALSE}
 library(finto)
 top_concepts <- get_top_concepts(vocid = "yso", lang = "fi")
