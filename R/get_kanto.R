@@ -1,10 +1,10 @@
-#' Process and Fetch KANTO Information using author_id
+#' Process and Fetch KANTO Information using author_ID
 #'
-#' This function extracts Asteri IDs from the 'author_id' column,
+#' This function extracts Asteri IDs from the 'author_ID' column,
 #' fetches RDF data from the Finto Skosmos API using those IDs,
 #' and returns a cleaned tibble with the retrieved metadata and profession labels.
 #'
-#' @param data A dataframe containing an 'author_id' column with values like "(FIN11)000069536".
+#' @param data A dataframe containing an 'author_ID' column with values like "(FIN11)000069536".
 #' @return A tibble with `asteriID`, RDF data, and extracted profession labels.
 #' @import dplyr purrr tibble stringr tidyr
 #' @importFrom dplyr mutate select rowwise filter distinct group_by ungroup
@@ -14,10 +14,10 @@
 #' }
 #' @export
 get_kanto <- function(data) {
-  # Step 1: Extract numeric Asteri ID from 'author_id' column
+  # Step 1: Extract numeric Asteri ID from 'author_ID' column
   data_clean <- data %>%
     dplyr::mutate(
-      asteriID = stringr::str_extract(author_id, "\\d{9}")
+      asteriID = stringr::str_extract(author_ID, "\\d{9}")
     ) %>%
     dplyr::filter(!is.na(asteriID)) %>%
     dplyr::distinct(asteriID)
