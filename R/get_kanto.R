@@ -5,7 +5,7 @@
 #' and returns a cleaned tibble with the retrieved metadata and profession labels.
 #'
 #' @param data A dataframe containing an 'author_ID' column with values like "(FIN11)000069536".
-#' @return A tibble with `asteriID`, RDF data, and extracted profession labels.
+#' @return A tibble with `author_ID`, RDF data, and extracted profession labels.
 #' @import dplyr purrr tibble stringr tidyr
 #' @importFrom dplyr mutate select rowwise filter distinct group_by ungroup
 #' @examples
@@ -17,19 +17,19 @@ get_kanto <- function(data) {
   # Step 1: Extract numeric Asteri ID from 'author_ID' column
   data_clean <- data %>%
     dplyr::mutate(
-      asteriID = stringr::str_extract(author_ID, "\\d{9}")
+      author_ID = stringr::str_extract(author_ID, "\\d{9}")
     ) %>%
-    dplyr::filter(!is.na(asteriID)) %>%
-    dplyr::distinct(asteriID)
+    dplyr::filter(!is.na(author_ID)) %>%
+    dplyr::distinct(author_ID)
 
-  # Step 2: Fetch RDF data for each valid asteriID
+  # Step 2: Fetch RDF data for each valid author_ID
   results <- data_clean %>%
     dplyr::rowwise() %>%
     dplyr::mutate(
       rdf_data = list(
         tryCatch(
-          fetch_kanto_info(asteriID) %>%
-            dplyr::filter(uri == paste0("http://urn.fi/URN:NBN:fi:au:finaf:", asteriID)),
+          fetch_kanto_info(author_ID) %>%
+            dplyr::filter(uri == paste0("http://urn.fi/URN:NBN:fi:au:finaf:", author_ID)),
           error = function(e) tibble::tibble(
             uri = NA, type = NA, prefLabel = NA, altLabel = NA, hiddenLabel = NA,
             broader = NA, narrower = NA, related = NA, definition = NA, scopeNote = NA,
@@ -63,13 +63,13 @@ get_kanto <- function(data) {
       })
     ) %>%
     tidyr::unnest_wider(profession_metadata, names_sep = "_") %>%
-    dplyr::group_by(asteriID) %>%
+    dplyr::group_by(author_ID) %>%
     dplyr::mutate(profession_labels = paste(profession_metadata_prefLabel_en, collapse = ", ")) %>%
     dplyr::ungroup()
 
   # Step 4: Return cleaned result
   results_clean <- results %>%
-    dplyr::select(asteriID, everything(), -profession_uris, -profession_metadata_prefLabel_en)
+    dplyr::select(author_ID, everything(), -profession_uris, -profession_metadata_prefLabel_en)
 
   return(results_clean)
 }

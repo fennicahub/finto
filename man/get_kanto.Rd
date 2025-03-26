@@ -10,7 +10,7 @@ get_kanto(data)
 \item{data}{A dataframe containing an 'author_ID' column with values like "(FIN11)000069536".}
 }
 \value{
-A tibble with \code{asteriID}, RDF data, and extracted profession labels.
+A tibble with \code{author_ID}, RDF data, and extracted profession labels.
 }
 \description{
 This function extracts Asteri IDs from the 'author_ID' column,
