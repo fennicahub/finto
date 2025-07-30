@@ -48,14 +48,27 @@ fetch_kanto_info <- function(asteriID, format = "application/json") {
   safe_extract_uris <- function(x, field) {
     val <- x[[field]]
     if (is.null(val)) return(NA_character_)
-    if (!is.null(val$uri)) return(val$uri)
-    if (is.character(val)) return(NA_character_)  # skip non-URI
-    if (is.list(val) && all(purrr::map_lgl(val, ~ is.list(.x) && "uri" %in% names(.x)))) {
-      uris <- purrr::map_chr(val, "uri")
+
+    if (is.atomic(val)) {
+      return(paste(val, collapse = ", "))
+    }
+
+    if (is.list(val)) {
+      uris <- purrr::map_chr(val, function(item) {
+        if (is.list(item) && !is.null(item$uri)) {
+          item$uri
+        } else if (is.character(item)) {
+          item  # atomic string
+        } else {
+          NA_character_
+        }
+      })
       return(paste(na.omit(uris), collapse = ", "))
     }
+
     return(NA_character_)
   }
+
 
 
   rdf_tibble <- tibble(
