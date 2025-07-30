@@ -31,19 +31,20 @@ fetch_kanto_info <- function(asteriID, format = "application/json") {
   #print(graph_data)
   concept <- purrr::detect(graph_data, ~ identical(.x$uri, full_uri))
   #print(concept)
-  safe_extract_values <- function(x, field) {
+  safe_extract_values <- function(x, field, collapse = ", ") {
     val <- x[[field]]
     if (is.null(val)) return(NA_character_)
-    if (is.character(val)) return(val)
+    if (is.character(val)) return(paste(val, collapse = collapse))
     if (!is.null(val$value)) return(val$value)
     if (is.list(val)) {
       if (all(purrr::map_lgl(val, ~ is.list(.x) && "value" %in% names(.x)))) {
-        return(paste(purrr::map_chr(val, "value"), collapse = ", "))
+        return(paste(purrr::map_chr(val, "value"), collapse = collapse))
       }
       if (!is.null(val$value)) return(val$value)
     }
     return(as.character(val))
   }
+
 
   safe_extract_uris <- function(x, field) {
     val <- x[[field]]
@@ -74,9 +75,9 @@ fetch_kanto_info <- function(asteriID, format = "application/json") {
   rdf_tibble <- tibble(
     uri = concept$uri,
     type = paste(concept$type, collapse = ", "),
-    prefLabel = safe_extract_values(concept, "prefLabel"),
-    altLabel = safe_extract_values(concept, "altLabel"),
-    variantName = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50103"),
+    prefLabel = safe_extract_values(concept, "prefLabel", collapse = "; "),
+    altLabel = safe_extract_values(concept, "altLabel", collapse = "; "),
+    variantName = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50103", collapse = "; "),
     hiddenLabel = safe_extract_values(concept, "hiddenLabel"),
     authorizedAccessPoint = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50411"),
     note = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50395"),
