@@ -21,51 +21,68 @@ fetch_kanto_info <- function(asteriID, format = "application/json") {
   full_uri <- paste0(base_uri, asteriID)
   params <- list(uri = full_uri, format = format)
   response <- finto_api_request("data", params)
+  #print(response)
 
   if (!is.list(response) || is.null(response$graph)) {
     stop("Unexpected API response format.")
   }
 
   graph_data <- response$graph
-
-  # Enhanced safe_extract function to handle empty fields
-  safe_extract <- function(x, field, subfield = NULL) {
-    val <- if (!is.null(subfield)) x[[field]][[subfield]] else x[[field]]
-    if (is.null(val) || length(val) == 0) {
-      return(NA_character_)
-    }
+  #print(graph_data)
+  concept <- purrr::detect(graph_data, ~ identical(.x$uri, full_uri))
+  #print(concept)
+  safe_extract_values <- function(x, field) {
+    val <- x[[field]]
+    if (is.null(val)) return(NA_character_)
+    if (is.character(val)) return(val)
+    if (!is.null(val$value)) return(val$value)
     if (is.list(val)) {
-      return(paste(unlist(val), collapse = ", "))
+      if (all(purrr::map_lgl(val, ~ is.list(.x) && "value" %in% names(.x)))) {
+        return(paste(purrr::map_chr(val, "value"), collapse = ", "))
+      }
+      if (!is.null(val$value)) return(val$value)
     }
-    val
+    return(as.character(val))
   }
 
-  # Convert graph data into a tibble
+  safe_extract_uris <- function(x, field) {
+    val <- x[[field]]
+    if (is.null(val)) return(NA_character_)
+    if (!is.null(val$uri)) return(val$uri)
+    if (is.character(val)) return(NA_character_)  # skip non-URI
+    if (is.list(val) && all(purrr::map_lgl(val, ~ is.list(.x) && "uri" %in% names(.x)))) {
+      uris <- purrr::map_chr(val, "uri")
+      return(paste(na.omit(uris), collapse = ", "))
+    }
+    return(NA_character_)
+  }
+
+
   rdf_tibble <- tibble(
-    uri = map_chr(graph_data, ~ safe_extract(.x, "uri")),
-    type = map_chr(graph_data, ~ safe_extract(.x, "type")),
-    prefLabel = map_chr(graph_data, ~ safe_extract(.x, "prefLabel", "value")),
-    altLabel = map_chr(graph_data, ~ safe_extract(.x, "altLabel", "value")),
-    hiddenLabel = map_chr(graph_data, ~ safe_extract(.x, "hiddenLabel", "value")),
-    broader = map_chr(graph_data, ~ safe_extract(.x, "broader", "uri")),
-    narrower = map_chr(graph_data, ~ safe_extract(.x, "narrower", "uri")),
-    related = map_chr(graph_data, ~ safe_extract(.x, "related", "uri")),
-    definition = map_chr(graph_data, ~ safe_extract(.x, "skos:definition", "value")),
-    scopeNote = map_chr(graph_data, ~ safe_extract(.x, "skos:scopeNote", "value")),
-    example = map_chr(graph_data, ~ safe_extract(.x, "skos:example", "value")),
-    historyNote = map_chr(graph_data, ~ safe_extract(.x, "skos:historyNote", "value")),
-    editorialNote = map_chr(graph_data, ~ safe_extract(.x, "skos:editorialNote", "value")),
-    changeNote = map_chr(graph_data, ~ safe_extract(.x, "skos:changeNote", "value")),
-    profession = map_chr(graph_data, ~ safe_extract(.x, "http://rdaregistry.info/Elements/a/P50104")),
-    birthDate = map_chr(graph_data, ~ safe_extract(.x, "http://rdaregistry.info/Elements/a/P50121")),
-    deathDate = map_chr(graph_data, ~ safe_extract(.x, "http://rdaregistry.info/Elements/a/P50120")),
-    exactMatch = map_chr(graph_data, ~ safe_extract(.x, "exactMatch", "uri")),
-    closeMatch = map_chr(graph_data, ~ safe_extract(.x, "closeMatch", "uri")),
-    inScheme = map_chr(graph_data, ~ safe_extract(.x, "inScheme", "uri")),
-    created = map_chr(graph_data, ~ safe_extract(.x, "dct:created", "value")),
-    modified = map_chr(graph_data, ~ safe_extract(.x, "dct:modified", "value"))
+    uri = concept$uri,
+    type = paste(concept$type, collapse = ", "),
+    prefLabel = safe_extract_values(concept, "prefLabel"),
+    altLabel = safe_extract_values(concept, "altLabel"),
+    variantName = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50103"),
+    hiddenLabel = safe_extract_values(concept, "hiddenLabel"),
+    authorizedAccessPoint = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50411"),
+    note = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50395"),
+    birthDate = concept[["http://rdaregistry.info/Elements/a/P50121"]] %||% NA_character_,
+    deathDate = concept[["http://rdaregistry.info/Elements/a/P50120"]] %||% NA_character_,
+    birthPlace = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50119"),
+    deathPlace = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50118"),
+    profession = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50104"),
+    language = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50102"),
+    title = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50110"),
+    country = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50097"),
+    relatedPerson = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50316"),
+    isni = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50094"),
+    source = safe_extract_values(concept, "http://rdaregistry.info/Elements/u/P61101"),
+    exactMatch = safe_extract_uris(concept, "exactMatch"),
+    closeMatch = safe_extract_uris(concept, "closeMatch"),
+    inScheme = safe_extract_uris(concept, "inScheme"),
+    created = concept[["dct:created"]]$value %||% NA_character_,
+    modified = concept[["dct:modified"]]$value %||% NA_character_
   )
 
-  return(rdf_tibble)
 }
-
