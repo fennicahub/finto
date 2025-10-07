@@ -4,6 +4,7 @@
 #' the Annif API.
 #'
 #' @return A list containing the title and version of the API.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @importFrom httr GET status_code content accept
 #' @importFrom jsonlite fromJSON
 #' @examples

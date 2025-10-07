@@ -23,3 +23,6 @@ Get broader concepts for a specific concept from the Finto Skosmos API
 conepts <- get_broader_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
 print(conepts)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

@@ -23,3 +23,6 @@ Get narrower concepts for a specific concept from the Finto Skosmos API
 narrower_concepts <- get_narrower_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 print(narrower_concepts)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

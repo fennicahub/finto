@@ -22,3 +22,6 @@ Helper function to send requests to the Finto Skosmos API
 finto_api_request("vocabularies")
 }
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

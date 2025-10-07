@@ -12,7 +12,6 @@ get_annif_project_info(project_id)
 }
 \value{
 A tibble containing project details, or an error message if the
-project is not found.
 }
 \description{
 This function retrieves detailed information about a specified project
@@ -21,4 +20,8 @@ using the Annif API.
 \examples{
 project_info <- get_annif_project_info(project_id = "yso-fi")
 print(project_info)
+}
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+project is not found.
 }

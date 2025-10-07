@@ -25,3 +25,6 @@ Get new concepts in a specific vocabulary from the Finto Skosmos API
 result <- get_new_concepts(vocid = "yso", lang = "fi", limit = 10)
 print(result)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

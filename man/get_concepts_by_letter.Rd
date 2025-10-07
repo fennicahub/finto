@@ -23,3 +23,6 @@ Get concepts starting with a specific letter in the alphabetical index for a giv
 result <- get_concepts_by_letter(vocid = "yso", letter = "A", lang = "fi")
 print(result)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

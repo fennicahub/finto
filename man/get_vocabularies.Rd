@@ -19,3 +19,6 @@ Get available vocabularies from the Finto Skosmos API
 result <- get_vocabularies(lang = "fi")
 print(result)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

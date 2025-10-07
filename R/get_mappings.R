@@ -4,6 +4,7 @@
 #' @param uri The URI of the concept whose mappings to retrieve.
 #' @param lang The language code for the labels, e.g., "fi" or "en". Optional.
 #' @return A tibble containing mappings associated with the specified concept.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @importFrom httr GET status_code content accept
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble tibble

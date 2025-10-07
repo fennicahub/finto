@@ -22,3 +22,6 @@ and returns a cleaned tibble with the retrieved metadata and profession labels.
 results <- get_kanto(my_data)
 }
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

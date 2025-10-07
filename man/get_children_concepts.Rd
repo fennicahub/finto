@@ -23,3 +23,6 @@ Get children concepts for a specific concept from the Finto Skosmos API
 children <- get_children_concepts(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 print(children)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

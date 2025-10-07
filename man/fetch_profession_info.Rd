@@ -19,3 +19,6 @@ This function queries the Finto API for a given concept URI and extracts all rel
 metadata <- fetch_profession_info("http://urn.fi/URN:NBN:fi:au:mts:m3357")
 print(metadata)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

@@ -4,6 +4,7 @@
 #' @param label The label to look up, e.g., "cat".
 #' @param lang The search language, e.g., "en" or "fi". Optional.
 #' @return A tibble containing the best matching concept(s) with fields like uri, type, prefLabel, and altLabel.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' result <- lookup_concept_by_label(vocid = "yso", label = "cat", lang = "en")
 #' print(result)

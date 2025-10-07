@@ -2,6 +2,7 @@
 #'
 #' @param vocid The vocabulary ID, e.g., "yso".
 #' @return A tibble containing the label statistics for each language, with columns for language, literal, property, and label count.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' result <- get_label_statistics(vocid = "yso")
 #' print(result)

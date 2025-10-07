@@ -23,3 +23,6 @@ Get mappings for a specific concept from the Finto Skosmos API
 mappings_data <- get_mappings(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
 print(mappings_data)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

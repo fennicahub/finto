@@ -6,6 +6,7 @@
 #' @param vocid The vocabulary ID (default: "mts").
 #' @param depth The depth of hierarchy to fetch (default: 3).
 #' @return A data.frame representing the hierarchy.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' hierarchy_df <- fetch_profession_hierarchy("http://urn.fi/URN:NBN:fi:au:mts:m3357")
 #' print(hierarchy_df)

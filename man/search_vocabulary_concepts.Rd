@@ -36,3 +36,6 @@ Search for concepts and collections in a specific vocabulary from the Finto Skos
 search_results <- search_vocabulary_concepts(vocid = "yso", query = "cat", lang = "en")
 print(search_results)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

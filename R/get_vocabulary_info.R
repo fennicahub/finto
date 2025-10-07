@@ -3,6 +3,7 @@
 #' @param vocid The vocabulary ID, e.g., "yso".
 #' @param lang The language of labels to retrieve, e.g., "en" or "fi". Optional.
 #' @return A list containing the vocabulary details such as URI, title, languages, and concept schemes.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' result <- get_vocabulary_info(vocid = "yso", lang = "fi")
 #' print(result)

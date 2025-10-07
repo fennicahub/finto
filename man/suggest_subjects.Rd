@@ -28,3 +28,6 @@ suggestions <- suggest_subjects(project_id = "yso-en",
 text = "Jean Sibelius orchestra music and composer")
 print(suggestions)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

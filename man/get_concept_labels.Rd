@@ -22,3 +22,6 @@ labeles <- get_concept_labels(uri = "http://www.yso.fi/onto/koko/p91024",
 lang = "fi")
 print(labeles)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

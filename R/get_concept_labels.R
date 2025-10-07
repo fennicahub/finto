@@ -3,6 +3,7 @@
 #' @param uri The URI of the concept to retrieve labels for.
 #' @param lang The language of labels to retrieve, e.g., "en" or "fi". Optional.
 #' @return A tibble containing the URI, preferred label (`prefLabel`), alternative labels (`altLabel`), and hidden labels (`hiddenLabel`) for the concept.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @import tibble
 #' @examples
 #' labeles <- get_concept_labels(uri = "http://www.yso.fi/onto/koko/p91024",

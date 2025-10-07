@@ -5,6 +5,7 @@
 #' @param offset Offset for the starting index of the results. Optional.
 #' @param limit Maximum number of concepts to return. Optional.
 #' @return A tibble containing the modified concepts with URI, label, and modification date.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' result <- get_modified_concepts(vocid = "yso", lang = "fi", limit = 10)
 #' print(result)

@@ -5,6 +5,7 @@
 #' @param format The MIME type of the serialization format, e.g., "application/rdf+xml". Default is "application/rdf+xml".
 #' @param lang The RDF language code for the requested resource, e.g., "fi" or "en". Optional.
 #' @return A tibble containing structured RDF data for the specified vocabulary or concept.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' #' @examples
 #' rdf_xml_data <- get_vocabulary_data(vocid = "yso", uri = "http://www.w3.org/2004/02/skos/core#Concept", format = "application/rdf+xml")
 #' cat(rdf_xml_data)

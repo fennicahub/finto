@@ -4,6 +4,7 @@
 #' @param uri The URI of the concept group whose members to retrieve.
 #' @param lang The language code for the labels, e.g., "fi" or "en". Optional.
 #' @return A tibble containing members associated with the specified concept group.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @importFrom httr GET status_code content accept
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr bind_rows mutate select

@@ -23,3 +23,6 @@ Get related concepts for a specific concept from the Finto Skosmos API
 related <- get_related_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p24489", lang = "fi")
 print(related)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

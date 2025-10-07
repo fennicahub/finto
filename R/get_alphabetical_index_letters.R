@@ -4,6 +4,7 @@
 #' @param vocid The vocabulary ID, e.g., "yso".
 #' @param lang The language of labels, e.g., "en" or "fi". Optional.
 #' @return A tibble containing the initial letters of the alphabetical index.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' result <- get_alphabetical_index_letters(vocid = "yso", lang = "fi")
 #' print(result)
