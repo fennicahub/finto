@@ -4,13 +4,14 @@
 #' @param uri The URI of the concept whose narrower concepts to retrieve.
 #' @param lang The language code for the labels, e.g., "fi" or "en". Optional.
 #' @return A tibble containing the narrower concepts (prefLabel and uri) for the specified concept.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @importFrom httr GET status_code content accept
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble tibble
 #' @importFrom utils str
 #' @examples
-#' narrower_concepts <- get_narrower_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
+#' narrower_concepts <- get_narrower_concepts(vocid = "yso",
+#' uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 #' print(narrower_concepts)
 #' @export
 get_narrower_concepts <- function(vocid, uri, lang = NULL) {

@@ -23,5 +23,5 @@ results <- get_kanto(my_data)
 }
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

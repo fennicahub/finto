@@ -4,12 +4,13 @@
 #' @param uri The URI of the concept whose broader concepts to retrieve.
 #' @param lang The language code for the labels, e.g., "fi" or "en". Optional.
 #' @return A tibble containing the broader concepts (prefLabel and uri) for the specified concept.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @importFrom httr GET status_code content accept
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble tibble
 #' @examples
-#' conepts <- get_broader_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
+#' conepts <- get_broader_concepts(vocid = "yso",
+#' uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
 #' print(conepts)
 #' @export
 get_broader_concepts <- function(vocid, uri, lang = NULL) {

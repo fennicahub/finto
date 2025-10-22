@@ -24,5 +24,5 @@ result <- lookup_concept_by_label(vocid = "yso", label = "cat", lang = "en")
 print(result)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

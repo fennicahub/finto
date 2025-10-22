@@ -20,5 +20,5 @@ result <- get_types(lang = "fi")
 print(result)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

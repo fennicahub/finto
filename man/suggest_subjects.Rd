@@ -29,5 +29,5 @@ text = "Jean Sibelius orchestra music and composer")
 print(suggestions)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

@@ -4,12 +4,13 @@
 #' @param uri The URI of the concept whose related concepts to retrieve.
 #' @param lang The language code for the labels, e.g., "fi" or "en". Optional.
 #' @return A tibble containing the related concepts (prefLabel and uri) for the specified concept.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @importFrom httr GET status_code content accept
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble tibble
 #' @examples
-#' related <- get_related_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p24489", lang = "fi")
+#' related <- get_related_concepts(vocid = "yso",
+#' uri = "http://www.yso.fi/onto/yso/p24489", lang = "fi")
 #' print(related)
 #' @export
 get_related_concepts <- function(vocid, uri, lang = NULL) {

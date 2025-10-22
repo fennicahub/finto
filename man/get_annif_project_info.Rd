@@ -22,6 +22,6 @@ project_info <- get_annif_project_info(project_id = "yso-fi")
 print(project_info)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 project is not found.
 }

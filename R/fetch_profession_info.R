@@ -4,7 +4,7 @@
 #'
 #' @param concept_uri The URI of the concept to fetch.
 #' @return A tibble containing the full metadata.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' metadata <- fetch_profession_info("http://urn.fi/URN:NBN:fi:au:mts:m3357")
 #' print(metadata)

@@ -17,7 +17,7 @@ projects <- get_annif_projects()
 print(projects)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 language, backend ID,
 training status, and modification time.
 }

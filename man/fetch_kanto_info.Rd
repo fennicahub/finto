@@ -23,5 +23,5 @@ concept_data <- fetch_kanto_info(asteriID = "000094320")
 print(concept_data)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

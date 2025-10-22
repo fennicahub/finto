@@ -8,7 +8,7 @@
 #' @param threshold An optional parameter to specify the minimum score threshold for results. Default is 0.
 #' @param language An optional parameter to specify the language of subject labels. Default is "en".
 #' @return A tibble containing suggested subjects, including their labels, URIs, and scores.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @importFrom httr POST status_code content accept
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble as_tibble

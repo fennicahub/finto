@@ -26,5 +26,5 @@ result <- get_modified_concepts(vocid = "yso", lang = "fi", limit = 10)
 print(result)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

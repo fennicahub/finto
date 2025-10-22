@@ -24,5 +24,5 @@ mappings_data <- get_mappings(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p
 print(mappings_data)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

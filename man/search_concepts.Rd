@@ -52,5 +52,5 @@ concepts <- search_concepts(query = "sibelius", lang = "fi", maxhits = 191)
 print(concepts)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

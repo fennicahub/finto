@@ -4,7 +4,7 @@
 #' @param letter The initial letter, or "0-9" for numeric or "!*" for special character labels.
 #' @param lang The language of labels, e.g., "en" or "fi". Optional.
 #' @return A tibble containing concepts with labels starting with the given letter.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' result <- get_concepts_by_letter(vocid = "yso", letter = "A", lang = "fi")
 #' print(result)

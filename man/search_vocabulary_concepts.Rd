@@ -37,5 +37,5 @@ search_results <- search_vocabulary_concepts(vocid = "yso", query = "cat", lang 
 print(search_results)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

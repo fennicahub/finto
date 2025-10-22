@@ -24,5 +24,5 @@ hierarchy <- get_hierarchy(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p244
 print(hierarchy)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

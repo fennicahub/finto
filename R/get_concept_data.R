@@ -3,7 +3,7 @@
 #' @param uri The URI of the concept to retrieve data for.
 #' @param format The MIME type of the serialization format (e.g., "application/rdf+xml" or "text/turtle"). Default is "application/json".
 #' @return A tibble containing the RDF data for the concept.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @import tibble
 #' @examples
 #' concept_data <- get_concept_data(uri = "http://www.yso.fi/onto/afo/")

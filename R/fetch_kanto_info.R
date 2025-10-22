@@ -5,8 +5,9 @@
 #'
 #' @param asteriID The unique identifier to append to the base URI.
 #' @param format The MIME type of the serialization format (e.g., "application/rdf+xml" or "text/turtle"). Default is "application/json".
+#' @importFrom stats na.omit
 #' @return A tibble containing the RDF data for the concept.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' concept_data <- fetch_kanto_info(asteriID = "000094320")
 #' print(concept_data)

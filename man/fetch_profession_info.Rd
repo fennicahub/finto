@@ -20,5 +20,5 @@ metadata <- fetch_profession_info("http://urn.fi/URN:NBN:fi:au:mts:m3357")
 print(metadata)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

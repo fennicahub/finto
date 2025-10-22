@@ -24,5 +24,5 @@ result <- get_concepts_by_letter(vocid = "yso", letter = "A", lang = "fi")
 print(result)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

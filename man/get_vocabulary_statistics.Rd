@@ -22,5 +22,5 @@ result <- get_vocabulary_statistics(vocid = "yso", lang = "fi")
 print(result)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

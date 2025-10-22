@@ -25,5 +25,5 @@ uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
 print(concepts)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

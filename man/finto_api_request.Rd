@@ -23,5 +23,5 @@ finto_api_request("vocabularies")
 }
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

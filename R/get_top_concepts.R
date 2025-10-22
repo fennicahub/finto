@@ -4,7 +4,7 @@
 #' @param lang The language of labels to retrieve, e.g., "en" or "fi". Optional.
 #' @param scheme The concept scheme to retrieve top concepts from. Optional.
 #' @return A tibble containing the URI, label, topConceptOf, notation, and hasChildren for each top concept.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' result <- get_top_concepts(vocid = "yso", lang = "fi")
 #' print(result)
