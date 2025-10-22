@@ -3,7 +3,6 @@
 #' @param endpoint API endpoint to request.
 #' @param params List of query parameters.
 #' @return Parsed JSON response from the API.
-#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' \dontrun{
 #' finto_api_request("vocabularies")

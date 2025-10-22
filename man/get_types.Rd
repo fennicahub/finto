@@ -19,6 +19,3 @@ Get information about the types (classes) of objects in all vocabularies from th
 result <- get_types(lang = "fi")
 print(result)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

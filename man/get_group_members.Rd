@@ -24,6 +24,3 @@ group_members_data <- get_group_members(vocid = "yso",
 uri = "http://www.yso.fi/onto/yso/p26580", lang = "fi")
 print(head(group_members_data))
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

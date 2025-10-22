@@ -23,6 +23,3 @@ This function retrieves broader/narrower relationships and constructs a hierarch
 hierarchy_df <- fetch_profession_hierarchy("http://urn.fi/URN:NBN:fi:au:mts:m3357")
 print(hierarchy_df)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

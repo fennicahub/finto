@@ -24,6 +24,3 @@ narrow <- get_narrower_transitive(vocid = "yso",
 uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 print(narrow)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

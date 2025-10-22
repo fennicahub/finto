@@ -8,6 +8,8 @@ get_annif_projects()
 }
 \value{
 A tibble containing project details, including project ID, name,
+language, backend ID,
+training status, and modification time.
 }
 \description{
 This function retrieves a list of projects available in the Annif API.
@@ -15,9 +17,4 @@ This function retrieves a list of projects available in the Annif API.
 \examples{
 projects <- get_annif_projects()
 print(projects)
-}
-\author{
-Akewak Jeba & Leo Lahti
-language, backend ID,
-training status, and modification time.
 }

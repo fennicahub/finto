@@ -9,7 +9,6 @@
 #' @param maxhits Maximum number of results to return. Optional.
 #' @param offset Offset where to start in the result set, useful for paging. Optional.
 #' @return A tibble containing the search results with fields such as uri, type, prefLabel, and altLabel.
-#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' search_results <- search_vocabulary_concepts(vocid = "yso", query = "cat", lang = "en")
 #' print(search_results)

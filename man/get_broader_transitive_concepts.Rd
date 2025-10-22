@@ -24,6 +24,3 @@ concepts <- get_broader_transitive_concepts(vocid = "yso",
 uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
 print(concepts)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

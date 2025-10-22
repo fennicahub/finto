@@ -3,7 +3,6 @@
 #' @param vocid The vocabulary ID, e.g., "yso".
 #' @param lang The language of labels, e.g., "en" or "fi". Optional.
 #' @return A tibble containing counts of concepts, subtypes, and concept groups, with each entry in one row.
-#' @author Akewak Jeba & Leo Lahti
 #' @importFrom dplyr bind_rows
 #' @examples
 #' result <- get_vocabulary_statistics(vocid = "yso", lang = "fi")

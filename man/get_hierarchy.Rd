@@ -23,6 +23,3 @@ Get the hierarchical context for a specific concept from the Finto Skosmos API
 hierarchy <- get_hierarchy(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p24489", lang = "fi")
 print(hierarchy)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

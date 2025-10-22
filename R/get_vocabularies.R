@@ -2,7 +2,6 @@
 #'
 #' @param lang Language of labels, e.g., "en" or "fi" (default is "fi")
 #' @return A data frame with the vocabulary details: uri, id, and title
-#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' result <- get_vocabularies(lang = "fi")
 #' print(result)

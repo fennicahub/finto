@@ -24,6 +24,3 @@ children <- get_children_concepts(vocid = "yso",
 uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 print(children)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

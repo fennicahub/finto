@@ -21,6 +21,3 @@ Get concept groups for a given vocabulary from the Finto Skosmos API
 result <- get_concept_groups(vocid = "yso", lang = "fi")
 print(result)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

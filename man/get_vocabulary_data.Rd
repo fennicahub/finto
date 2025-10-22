@@ -28,7 +28,7 @@ get_vocabulary_data(
 \item{lang}{Optional language code for the RDF resource, e.g., "fi" or "en".}
 }
 \value{
-A tibble containing structured RDF data for the specified vocabulary or concept.
+A character string containing the raw RDF response.
 
 The RDF data in the specified format.
 }
@@ -38,15 +38,20 @@ Get and structure RDF data of the whole vocabulary or a specific concept from th
 Get RDF data of a specific vocabulary or concept from the Finto Skosmos API
 }
 \examples{
-rdf_xml_data <- get_vocabulary_data(vocid = "yso",
-uri = "http://www.w3.org/2004/02/skos/core#Concept",
-format = "application/rdf+xml")
+\dontrun{
+rdf_xml_data <- get_vocabulary_data(
+  vocid = "yso",
+  uri = "http://www.w3.org/2004/02/skos/core#Concept",
+  format = "application/rdf+xml"
+)
 cat(rdf_xml_data)
-turtle_data <- get_vocabulary_data(vocid = "yso", format = "text/turtle")
+
+turtle_data <- get_vocabulary_data(
+  vocid = "yso",
+  format = "text/turtle"
+)
 cat(turtle_data)  # Print the Turtle data
+}
 result <- get_vocabulary_data(vocid = "yso", format = "text/turtle")
 print(result)
-}
-\author{
-Akewak Jeba & Leo Lahti
 }

@@ -23,6 +23,3 @@ Get top concepts of a specific vocabulary from the Finto Skosmos API
 result <- get_top_concepts(vocid = "yso", lang = "fi")
 print(result)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

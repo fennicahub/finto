@@ -19,6 +19,3 @@ Get label statistics by language in a specific vocabulary from the Finto Skosmos
 result <- get_label_statistics(vocid = "yso")
 print(result)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

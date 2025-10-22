@@ -5,7 +5,6 @@
 #' @param offset Offset for the starting index of the results. Optional.
 #' @param limit Maximum number of concepts to return. Optional.
 #' @return A tibble containing the new concepts with URI, label, and creation date.
-#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' result <- get_new_concepts(vocid = "yso", lang = "fi", limit = 10)
 #' print(result)

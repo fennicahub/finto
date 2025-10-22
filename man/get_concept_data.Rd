@@ -21,6 +21,3 @@ Get RDF data for a specific concept from the Finto Skosmos API
 concept_data <- get_concept_data(uri = "http://www.yso.fi/onto/afo/")
 print(concept_data)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

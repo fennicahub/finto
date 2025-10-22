@@ -17,6 +17,3 @@ the Annif API.
 api_info <- get_annif_api_info()
 print(api_info)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

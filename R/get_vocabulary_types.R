@@ -5,7 +5,6 @@
 #' @param uri Optional URI of the specific concept to retrieve data for. If not provided, the whole vocabulary is returned.
 #' @param lang Optional language code for the RDF resource, e.g., "fi" or "en".
 #' @return The RDF data in the specified format.
-#' @author Akewak Jeba & Leo Lahti
 #' @import tidyverse
 #' @examples
 #' result <- get_vocabulary_data(vocid = "yso", format = "text/turtle")

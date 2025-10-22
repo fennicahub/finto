@@ -12,7 +12,6 @@
 #' @param fields Extra fields to include in the results (space-separated list). Optional.
 #' @param unique Boolean flag to return each concept only once. Optional.
 #' @return A data frame containing search results with columns: `uri`, `type`, `prefLabel`, `altLabel`, `hiddenLabel`, `lang`, and `vocab`.
-#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' concepts <- search_concepts(query = "sibelius", lang = "fi", maxhits = 191)
 #' print(concepts)

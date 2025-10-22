@@ -2,7 +2,6 @@
 #'
 #' @param lang The language of labels to retrieve, e.g., "en" or "fi". Optional.
 #' @return A tibble containing the URI, label, and superclass for each type.
-#' @author Akewak Jeba & Leo Lahti
 #' @import tibble
 #' @examples
 #' result <- get_types(lang = "fi")

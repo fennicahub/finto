@@ -3,7 +3,6 @@
 #' This function retrieves a list of projects available in the Annif API.
 #'
 #' @return A tibble containing project details, including project ID, name,
-#' @author Akewak Jeba & Leo Lahti
 #' language, backend ID,
 #'         training status, and modification time.
 #' @importFrom httr GET status_code content accept

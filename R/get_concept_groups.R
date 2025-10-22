@@ -3,7 +3,6 @@
 #' @param vocid The vocabulary ID, e.g., "yso".
 #' @param lang The language of labels, e.g., "en" or "fi". Optional.
 #' @return A tibble containing concept groups, with fields for URI, prefLabel, and hasMembers.
-#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' result <- get_concept_groups(vocid = "yso", lang = "fi")
 #' print(result)

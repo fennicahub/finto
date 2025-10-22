@@ -24,6 +24,3 @@ lables <- get_concept_labels_vocid(vocid = "yso",
 uri = "http://www.yso.fi/onto/yso/p22922", lang = "fi")
 print(lables)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

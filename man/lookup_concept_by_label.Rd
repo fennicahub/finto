@@ -23,6 +23,3 @@ Look up concepts by label in a specific vocabulary from the Finto Skosmos API
 result <- lookup_concept_by_label(vocid = "yso", label = "cat", lang = "en")
 print(result)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

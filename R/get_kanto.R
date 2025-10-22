@@ -6,7 +6,6 @@
 #'
 #' @param data A dataframe containing an 'author_ID' column with values like "(FIN11)000069536".
 #' @return A tibble with `author_ID`, RDF data, and extracted profession labels.
-#' @author Akewak Jeba & Leo Lahti
 #' @import dplyr purrr tibble stringr tidyr
 #' @importFrom dplyr mutate select rowwise filter distinct group_by ungroup distinct
 #' @examples

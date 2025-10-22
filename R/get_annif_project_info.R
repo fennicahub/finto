@@ -6,7 +6,6 @@
 #' @param project_id A string representing the project identifier
 #' (e.g., "dummy-fi").
 #' @return A tibble containing project details, or an error message if the
-#' @author Akewak Jeba & Leo Lahti
 #' project is not found.
 #' @importFrom httr GET status_code content accept
 #' @importFrom jsonlite fromJSON

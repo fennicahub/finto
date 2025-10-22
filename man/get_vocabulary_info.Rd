@@ -21,6 +21,3 @@ Get general information about a specific vocabulary from the Finto Skosmos API
 result <- get_vocabulary_info(vocid = "yso", lang = "fi")
 print(result)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

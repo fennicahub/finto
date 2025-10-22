@@ -22,6 +22,3 @@ The user only needs to provide the asteriID, which is appended to a fixed base U
 concept_data <- fetch_kanto_info(asteriID = "000094320")
 print(concept_data)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

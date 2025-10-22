@@ -21,6 +21,3 @@ Get vocabulary statistics as a single tibble containing concepts, subtypes, and 
 result <- get_vocabulary_statistics(vocid = "yso", lang = "fi")
 print(result)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}
