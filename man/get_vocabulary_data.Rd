@@ -38,7 +38,9 @@ Get and structure RDF data of the whole vocabulary or a specific concept from th
 Get RDF data of a specific vocabulary or concept from the Finto Skosmos API
 }
 \examples{
-rdf_xml_data <- get_vocabulary_data(vocid = "yso", uri = "http://www.w3.org/2004/02/skos/core#Concept", format = "application/rdf+xml")
+rdf_xml_data <- get_vocabulary_data(vocid = "yso",
+uri = "http://www.w3.org/2004/02/skos/core#Concept",
+format = "application/rdf+xml")
 cat(rdf_xml_data)
 turtle_data <- get_vocabulary_data(vocid = "yso", format = "text/turtle")
 cat(turtle_data)  # Print the Turtle data

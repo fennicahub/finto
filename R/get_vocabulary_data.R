@@ -7,7 +7,9 @@
 #' @return A tibble containing structured RDF data for the specified vocabulary or concept.
 #' @author Akewak Jeba & Leo Lahti
 #' @examples
-#' rdf_xml_data <- get_vocabulary_data(vocid = "yso", uri = "http://www.w3.org/2004/02/skos/core#Concept", format = "application/rdf+xml")
+#' rdf_xml_data <- get_vocabulary_data(vocid = "yso",
+#' uri = "http://www.w3.org/2004/02/skos/core#Concept",
+#' format = "application/rdf+xml")
 #' cat(rdf_xml_data)
 #' turtle_data <- get_vocabulary_data(vocid = "yso", format = "text/turtle")
 #' cat(turtle_data)  # Print the Turtle data
