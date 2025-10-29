@@ -1,6 +1,7 @@
 Package: finto
-Title: What the Package Does (One Line, Title Case)
+Title: Access the 'Finto' API
 Version: 0.1.1
+Date: 2025-10-29
 Authors@R: c(
     person("Akewak", "Jeba", , "akjeba@utu.fi", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0007-1347-7552")),
@@ -32,4 +33,4 @@ RoxygenNote: 7.3.2
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5)
