@@ -3,6 +3,7 @@
 #' Suggest subjects for a batch (≤32 docs) via Annif REST API
 #'
 #' @param project_id Project id, e.g. "yso-en".
+#' @param texts Character vector of document texts to analyze (max 32 documents).
 #' @param doc_ids Optional character vector of IDs (same length as texts).
 #'   If NULL, IDs are auto-generated as "doc-1", "doc-2", ...
 #' @param limit Max suggestions per document (default 10).

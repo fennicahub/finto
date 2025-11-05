@@ -16,6 +16,8 @@ annif_batch_indexing(
 \arguments{
 \item{project_id}{Project id, e.g. "yso-en".}
 
+\item{texts}{Character vector of document texts to analyze (max 32 documents).}
+
 \item{doc_ids}{Optional character vector of IDs (same length as texts).
 If NULL, IDs are auto-generated as "doc-1", "doc-2", ...}
 
