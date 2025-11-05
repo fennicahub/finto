@@ -13,13 +13,14 @@
 #' @importFrom tibble as_tibble
 #' @importFrom purrr map
 #' @examples
-#' suggestions <- suggest_subjects(project_id = "yso-en",
+#' suggestions <- annif_subject_indexing(project_id = "yso-en",
 #' text = "Jean Sibelius orchestra music and composer")
 #' print(suggestions)
 #' @export
-suggest_subjects <- function(project_id, text, limit = 10, threshold = 0, language = "en") {
+annif_subject_indexing <- function(project_id, text, limit = 10, threshold = 0, language = "en") {
   # Define the base URL for the Annif API
   base_url <- paste0("https://ai.finto.fi/v1/projects/", project_id, "/suggest")
+  print(base_url)
 
   # Prepare the body of the POST request
   body <- list(
