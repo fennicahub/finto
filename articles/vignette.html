@@ -76,47 +76,22 @@ following.</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finto/" class="external-link">finto</a></span><span class="op">)</span></span>
 <span><span class="va">concepts</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_concepts.html">search_concepts</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">concepts</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2 × 7</span></span></span>
-<span><span class="co">##   uri                           type  prefLabel altLabel hiddenLabel lang  vocab</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> http://www.yso.fi/onto/koko/… skos… Sibelius… Sibelius <span style="color: #BB0000;">NA</span>          fi    koko </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> http://www.yso.fi/onto/mero/… skos… Sibelius… Sibelius <span style="color: #BB0000;">NA</span>          fi    liiko</span></span></code></pre>
 <p>To get available vocabularies from the Finto Skosmos API we use</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finto/" class="external-link">finto</a></span><span class="op">)</span></span>
 <span><span class="va">vocabularies</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_vocabularies.html">get_vocabularies</a></span><span class="op">(</span>lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">vocabularies</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##      uri     id</span></span>
-<span><span class="co">## 1    afo    afo</span></span>
-<span><span class="co">## 2 allars allars</span></span>
-<span><span class="co">## 3    cer    cer</span></span>
-<span><span class="co">## 4     cn     cn</span></span>
-<span><span class="co">## 5  finaf  finaf</span></span>
-<span><span class="co">## 6    geo    geo</span></span>
-<span><span class="co">##                                                                                   title</span></span>
-<span><span class="co">## 1                                       AFO - Natural resource and environment ontology</span></span>
-<span><span class="co">## 2                                                 Allärs - General thesaurus in Swedish</span></span>
-<span><span class="co">## 3 Clean Energy Research ontology of The Bank of Finnish Terminology in Art and Sciences</span></span>
-<span><span class="co">## 4                                                               Finnish Corporate Names</span></span>
-<span><span class="co">## 5                                                     KANTO - Kansalliset toimijatiedot</span></span>
-<span><span class="co">## 6                                                             GEO - Geologian ontologia</span></span></code></pre>
 <p>To retrieve top concepts in a vocabulary</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finto/" class="external-link">finto</a></span><span class="op">)</span></span>
 <span><span class="va">top_concepts</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_top_concepts.html">get_top_concepts</a></span><span class="op">(</span>vocid <span class="op">=</span> <span class="st">"yso"</span>, lang <span class="op">=</span> <span class="st">"fi"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">top_concepts</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 3 × 5</span></span></span>
-<span><span class="co">##   uri                               label      topConceptOf notation hasChildren</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>      </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> http://www.yso.fi/onto/yso/p8691  ominaisuu… http://www.… <span style="color: #BB0000;">NA</span>       TRUE       </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> http://www.yso.fi/onto/yso/p4762  oliot      http://www.… <span style="color: #BB0000;">NA</span>       TRUE       </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> http://www.yso.fi/onto/yso/p15238 tapahtuma… http://www.… <span style="color: #BB0000;">NA</span>       TRUE</span></span></code></pre>
 <div class="section level3">
 <h3 id="retrieving-author-information">Retrieving author information<a class="anchor" aria-label="anchor" href="#retrieving-author-information"></a>
 </h3>
 <p>To retrieve author information we need unique identifier of the
 author which is called asterID</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finto/" class="external-link">finto</a></span><span class="op">)</span></span>
 <span><span class="va">author_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_kanto_info.html">fetch_kanto_info</a></span><span class="op">(</span>asteriID <span class="op">=</span> <span class="st">"000094320"</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">author_info</span>,caption <span class="op">=</span> <span class="st">"author info"</span><span class="op">)</span></span></code></pre></div>
@@ -124,7 +99,7 @@ author which is called asterID</p>
 <div class="section level3">
 <h3 id="retrieval-of-profession-information">Retrieval of profession information<a class="anchor" aria-label="anchor" href="#retrieval-of-profession-information"></a>
 </h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finto/" class="external-link">finto</a></span><span class="op">)</span></span>
 <span><span class="va">profession_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_profession_info.html">fetch_profession_info</a></span><span class="op">(</span><span class="st">"http://urn.fi/URN:NBN:fi:au:mts:m3357"</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">profession_info</span>,caption <span class="op">=</span> <span class="st">"author info"</span><span class="op">)</span></span></code></pre></div>
@@ -133,7 +108,7 @@ author which is called asterID</p>
 <h3 id="retriveal-of-both-author-and-profession-informations">Retriveal of both author and profession informations<a class="anchor" aria-label="anchor" href="#retriveal-of-both-author-and-profession-informations"></a>
 </h3>
 <p>For this we need a tibble</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finto/" class="external-link">finto</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="va">input_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>author_ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"000069536"</span>, <span class="st">"000041234"</span>, <span class="st">"000057891"</span><span class="op">)</span><span class="op">)</span></span>

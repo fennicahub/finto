@@ -66,7 +66,7 @@ exceptions.
 ## All functions
 
 - [`annif_batch_indexing()`](annif_batch_indexing.md) : Suggest subjects
-  for a batch (≤32 docs) via Annif REST API
+  for a batch (maximum 32 docs) via Annif REST API
 - [`annif_subject_indexing()`](annif_subject_indexing.md) : Suggest
   subjects for a given text using the Annif REST API
 - [`fetch_kanto_info()`](fetch_kanto_info.md) : Fetch RDF data for a

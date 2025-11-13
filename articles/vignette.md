@@ -20,12 +20,6 @@ concepts <- search_concepts("sibelius")
 head(concepts)
 ```
 
-    ## # A tibble: 2 × 7
-    ##   uri                           type  prefLabel altLabel hiddenLabel lang  vocab
-    ##   <chr>                         <chr> <chr>     <chr>    <lgl>       <chr> <chr>
-    ## 1 http://www.yso.fi/onto/koko/… skos… Sibelius… Sibelius NA          fi    koko 
-    ## 2 http://www.yso.fi/onto/mero/… skos… Sibelius… Sibelius NA          fi    liiko
-
 To get available vocabularies from the Finto Skosmos API we use
 
 ``` r
@@ -34,21 +28,6 @@ vocabularies <- get_vocabularies(lang = "en")
 head(vocabularies)
 ```
 
-    ##      uri     id
-    ## 1    afo    afo
-    ## 2 allars allars
-    ## 3    cer    cer
-    ## 4     cn     cn
-    ## 5  finaf  finaf
-    ## 6    geo    geo
-    ##                                                                                   title
-    ## 1                                       AFO - Natural resource and environment ontology
-    ## 2                                                 Allärs - General thesaurus in Swedish
-    ## 3 Clean Energy Research ontology of The Bank of Finnish Terminology in Art and Sciences
-    ## 4                                                               Finnish Corporate Names
-    ## 5                                                     KANTO - Kansalliset toimijatiedot
-    ## 6                                                             GEO - Geologian ontologia
-
 To retrieve top concepts in a vocabulary
 
 ``` r
@@ -56,13 +35,6 @@ library(finto)
 top_concepts <- get_top_concepts(vocid = "yso", lang = "fi")
 head(top_concepts)
 ```
-
-    ## # A tibble: 3 × 5
-    ##   uri                               label      topConceptOf notation hasChildren
-    ##   <chr>                             <chr>      <chr>        <lgl>    <lgl>      
-    ## 1 http://www.yso.fi/onto/yso/p8691  ominaisuu… http://www.… NA       TRUE       
-    ## 2 http://www.yso.fi/onto/yso/p4762  oliot      http://www.… NA       TRUE       
-    ## 3 http://www.yso.fi/onto/yso/p15238 tapahtuma… http://www.… NA       TRUE
 
 ### Retrieving author information
 
