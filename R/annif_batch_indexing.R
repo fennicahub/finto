@@ -1,6 +1,6 @@
 
 
-#' Suggest subjects for a batch (≤32 docs) via Annif REST API
+#' Suggest subjects for a batch (maximum 32 docs) via Annif REST API
 #'
 #' @param project_id Project id, e.g. "yso-en".
 #' @param texts Character vector of document texts to analyze (max 32 documents).
@@ -14,12 +14,19 @@
 #' @importFrom tibble tibble as_tibble
 #' @importFrom dplyr bind_rows select relocate
 #' @examples
-#' texts <- c("A quick brown fox jumped over the lazy dog.",
-#' "Climate change and global warming effects on Arctic ecosystems.",
-#' "Machine learning applications in healthcare diagnostics.")
-#' results <- annif_batch_indexing(project_id = "yso-en",texts = texts,
-#' limit = 5)
+#' \dontrun{
+#' texts <- c(
+#'   "A quick brown fox jumped over the lazy dog.",
+#'   "Climate change and global warming effects on Arctic ecosystems.",
+#'   "Machine learning applications in healthcare diagnostics."
+#' )
+#' results <- annif_batch_indexing(
+#'   project_id = "yso-en",
+#'   texts = texts,
+#'   limit = 5
+#' )
 #' print(results)
+#' }
 #'
 #' @export
 annif_batch_indexing <- function(project_id,

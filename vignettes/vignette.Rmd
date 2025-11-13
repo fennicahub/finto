@@ -14,7 +14,7 @@ vignette: >
 
 To make a simple search Search Concepts by Query Term we use the following.
 
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, eval = FALSE}
 library(finto)
 concepts <- search_concepts("sibelius")
 head(concepts)
@@ -22,7 +22,7 @@ head(concepts)
 
 To get available vocabularies from the Finto Skosmos API we use 
 
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, eval = FALSE}
 library(finto)
 vocabularies <- get_vocabularies(lang = "en")
 head(vocabularies)
@@ -30,7 +30,7 @@ head(vocabularies)
 
 To retrieve top concepts in a vocabulary
  
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, eval = FALSE}
 library(finto)
 top_concepts <- get_top_concepts(vocid = "yso", lang = "fi")
 head(top_concepts)

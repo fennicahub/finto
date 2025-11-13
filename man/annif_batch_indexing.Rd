@@ -2,7 +2,7 @@
 % Please edit documentation in R/annif_batch_indexing.R
 \name{annif_batch_indexing}
 \alias{annif_batch_indexing}
-\title{Suggest subjects for a batch (≤32 docs) via Annif REST API}
+\title{Suggest subjects for a batch (maximum 32 docs) via Annif REST API}
 \usage{
 annif_batch_indexing(
   project_id,
@@ -31,14 +31,21 @@ If NULL, IDs are auto-generated as "doc-1", "doc-2", ...}
 Tibble with columns: document_id, label, uri, notation, score
 }
 \description{
-Suggest subjects for a batch (≤32 docs) via Annif REST API
+Suggest subjects for a batch (maximum 32 docs) via Annif REST API
 }
 \examples{
-texts <- c("A quick brown fox jumped over the lazy dog.",
-"Climate change and global warming effects on Arctic ecosystems.",
-"Machine learning applications in healthcare diagnostics.")
-results <- annif_batch_indexing(project_id = "yso-en",texts = texts,
-limit = 5)
+\dontrun{
+texts <- c(
+  "A quick brown fox jumped over the lazy dog.",
+  "Climate change and global warming effects on Arctic ecosystems.",
+  "Machine learning applications in healthcare diagnostics."
+)
+results <- annif_batch_indexing(
+  project_id = "yso-en",
+  texts = texts,
+  limit = 5
+)
 print(results)
+}
 
 }
