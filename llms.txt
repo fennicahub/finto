@@ -142,6 +142,8 @@ exceptions.
 - [`get_vocabulary_statistics()`](get_vocabulary_statistics.md) : Get
   vocabulary statistics as a single tibble containing concepts,
   subtypes, and concept groups
+- [`get_vocabulary_types()`](get_vocabulary_types.md) : Get type
+  information for a Finto vocabulary
 - [`lookup_concept_by_label()`](lookup_concept_by_label.md) : Look up
   concepts by label in a specific vocabulary from the Finto Skosmos API
 - [`search_concepts()`](search_concepts.md) : Search for concepts in the
