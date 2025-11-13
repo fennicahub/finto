@@ -1,34 +1,52 @@
-#' Get RDF data of a specific vocabulary or concept from the Finto Skosmos API
+#' Get type information for a Finto vocabulary
 #'
-#' @param vocid The vocabulary ID, e.g., "yso".
-#' @param format The MIME type of the serialization format, e.g., "text/turtle" or "application/rdf+xml". Default is "application/rdf+xml".
-#' @param uri Optional URI of the specific concept to retrieve data for. If not provided, the whole vocabulary is returned.
-#' @param lang Optional language code for the RDF resource, e.g., "fi" or "en".
-#' @return The RDF data in the specified format.
-#' @import tidyverse
+#' This function retrieves information about the types (classes) of objects
+#' in a given Finto/Skosmos vocabulary, using the `/types` endpoint.
+#'
+#' @param vocid A Skosmos vocabulary identifier, e.g. `"yso"`.
+#' @param lang Optional language code for labels, e.g. `"fi"` or `"en"`.
+#'   If `NULL` (default), the API's default language is used.
+#' @return A tibble with one row per type, typically containing columns
+#'   `uri`, `label`, and (optionally) `superclass`.
 #' @examples
-#' result <- get_vocabulary_data(vocid = "yso", format = "text/turtle")
-#' print(result)
+#' types <- get_vocabulary_types("yso", lang = "fi")
+#' print(types)
 #' @export
-get_vocabulary_data <- function(vocid, format = "application/rdf+xml", uri = NULL, lang = NULL) {
-  # Construct the base URL
-  base_url <- paste0("https://api.finto.fi/rest/v1/", vocid, "/data")
+get_vocabulary_types <- function(vocid, lang = NULL) {
+  # Construct the /types endpoint URL
+  base_url <- sprintf("https://api.finto.fi/rest/v1/%s/types", vocid)
 
-  # Set up the query parameters
-  params <- list(
-    format = format,
-    uri = uri,
-    lang = lang
+  # Build query parameters, dropping NULLs
+  params <- list(lang = lang)
+  params <- params[!vapply(params, is.null, logical(1))]
+
+  # Perform the request, asking for JSON-LD
+  response <- httr::GET(
+    url   = base_url,
+    query = params,
+    httr::accept("application/ld+json")
   )
 
-  # Make the API request
-  response <- GET(base_url, query = params, accept(format))
-
-  # Check for successful response
-  if (status_code(response) != 200) {
-    stop("Error: ", status_code(response), " - ", content(response, "text"))
+  # Check status code
+  if (httr::status_code(response) != 200) {
+    stop(
+      "Error: ", httr::status_code(response),
+      " - ", httr::content(response, as = "text", encoding = "UTF-8")
+    )
   }
 
-  # Return the content of the response as text
-  return(content(response, "text"))
+  # Extract JSON as text and parse
+  json_txt <- httr::content(response, as = "text", encoding = "UTF-8")
+  json_obj <- jsonlite::fromJSON(json_txt, simplifyVector = TRUE)
+
+  # Pull out the 'types' array
+  types <- json_obj$types
+
+  # If no types are found, return an empty tibble
+  if (is.null(types) || length(types) == 0) {
+    return(tibble::tibble())
+  }
+
+  # Convert to tibble (columns: uri, label, superclass if present)
+  tibble::as_tibble(types)
 }
