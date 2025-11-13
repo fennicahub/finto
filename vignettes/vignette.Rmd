@@ -40,7 +40,8 @@ head(top_concepts)
 
 To retrieve author information we need unique identifier of the author which is called asterID
 
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, eval = FALSE}
+
 library(finto)
 author_info <- fetch_kanto_info(asteriID = "000094320")
 knitr::kable(author_info,caption = "author info")
@@ -49,7 +50,7 @@ knitr::kable(author_info,caption = "author info")
 
 ## Retrieval of profession information
 
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, eval = FALSE}
 library(finto)
 profession_info <- fetch_profession_info("http://urn.fi/URN:NBN:fi:au:mts:m3357")
 knitr::kable(profession_info,caption = "author info")
@@ -58,7 +59,7 @@ knitr::kable(profession_info,caption = "author info")
 ## Retriveal of both author and profession informations
 
 For this we need a tibble 
-```{r message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE, eval = FALSE}
 library(finto)
 library(tidyverse)
 input_data <- tibble(author_ID = c("000069536", "000041234", "000057891"))

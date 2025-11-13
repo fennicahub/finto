@@ -78,7 +78,10 @@ fetch_kanto_info <- function(asteriID, format = "application/json") {
     type = paste(concept$type, collapse = ", "),
     prefLabel = safe_extract_values(concept, "prefLabel", collapse = "; "),
     altLabel = safe_extract_values(concept, "altLabel", collapse = "; "),
+    Person = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/C10004"),
+    preferredNameOfPerson = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50117", collapse = "; "),
     variantName = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50103", collapse = "; "),
+    fullerFormOfName = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50115"),
     hiddenLabel = safe_extract_values(concept, "hiddenLabel"),
     authorizedAccessPoint = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50411"),
     note = safe_extract_values(concept, "http://rdaregistry.info/Elements/a/P50395"),
@@ -89,8 +92,13 @@ fetch_kanto_info <- function(asteriID, format = "application/json") {
     profession = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50104"),
     language = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50102"),
     title = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50110"),
+    relatedPersonOfPerson = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50316"),
     country = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50097"),
-    relatedPerson = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50316"),
+    periodOfActivityOfPerson = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50098"),
+    placeOfResidence = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50098"),
+    relatedPerson = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50109"),
+    placeAssociatedWithPerson = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50346"),
+    fieldOfActivityOfPerson = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50100"),
     isni = safe_extract_uris(concept, "http://rdaregistry.info/Elements/a/P50094"),
     source = safe_extract_values(concept, "http://rdaregistry.info/Elements/u/P61101"),
     exactMatch = safe_extract_uris(concept, "exactMatch"),
@@ -99,5 +107,6 @@ fetch_kanto_info <- function(asteriID, format = "application/json") {
     created = concept[["dct:created"]]$value %||% NA_character_,
     modified = concept[["dct:modified"]]$value %||% NA_character_
   )
+  return(rdf_tibble)
 
 }
