@@ -52,6 +52,7 @@ jobs:
           echo "    right:" >> ./_pkgdown.yml
           echo "      - 'GitHub'" >> ./_pkgdown.yml
           echo "      - 'Reference'" >> ./_pkgdown.yml
+          echo "llm-docs: false" >> ./_pkgdown.yml
           echo "  links:" >> ./_pkgdown.yml
           echo "    - title: 'GitHub'" >> ./_pkgdown.yml
           echo "      href: 'https://github.com/fennicahub/finto'" >> ./_pkgdown.yml
