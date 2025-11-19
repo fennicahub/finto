@@ -1,4 +1,4 @@
-#' Fetch RDF data for a specific concept from the Finto Skosmos API using an asteriID
+#' Fetch RDF data for a specific concept from the Finto Skosmos API using a single asteriID
 #'
 #' This function retrieves RDF data for a given concept from the Finto API.
 #' The user only needs to provide the asteriID, which is appended to a fixed base URI.

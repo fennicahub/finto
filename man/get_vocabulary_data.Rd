@@ -27,7 +27,7 @@ A character string containing the raw RDF response.
 Get and structure RDF data of the whole vocabulary or a specific concept from the Finto Skosmos API
 }
 \examples{
-\dontrun{
+\donttest{
 rdf_xml_data <- get_vocabulary_data(
   vocid = "yso",
   uri = "http://www.w3.org/2004/02/skos/core#Concept",

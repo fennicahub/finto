@@ -2,7 +2,7 @@
 % Please edit documentation in R/fetch_kanto_info.R
 \name{fetch_kanto_info}
 \alias{fetch_kanto_info}
-\title{Fetch RDF data for a specific concept from the Finto Skosmos API using an asteriID}
+\title{Fetch RDF data for a specific concept from the Finto Skosmos API using a single asteriID}
 \usage{
 fetch_kanto_info(asteriID, format = "application/json")
 }

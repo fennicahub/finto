@@ -20,8 +20,7 @@ Imports:
     jsonlite,
     tidyr,
     stringr,
-    purrr,
-    tidyverse
+    purrr
 Suggests: 
     testthat (>= 3.0.0),
     rmarkdown,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_kanto.R
 \name{get_kanto}
 \alias{get_kanto}
-\title{Process and Fetch KANTO Information using author_ID}
+\title{Process and Fetch KANTO Information using a list of author_IDs as column}
 \usage{
 get_kanto(data)
 }
@@ -13,12 +13,7 @@ get_kanto(data)
 A tibble with \code{author_ID}, RDF data, and extracted profession labels.
 }
 \description{
-This function extracts Asteri IDs from the 'author_ID' column,
+This function extracts Asteri IDs from the 'author_ID' column as list,
 fetches RDF data from the Finto Skosmos API using those IDs,
 and returns a cleaned tibble with the retrieved metadata and profession labels.
-}
-\examples{
-\dontrun{
-results <- get_kanto(my_data)
-}
 }

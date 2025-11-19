@@ -6,7 +6,7 @@
 #' @param lang The RDF language code for the requested resource, e.g., "fi" or "en". Optional.
 #' @return A character string containing the raw RDF response.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' rdf_xml_data <- get_vocabulary_data(
 #'   vocid = "yso",
 #'   uri = "http://www.w3.org/2004/02/skos/core#Concept",
