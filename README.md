@@ -35,11 +35,7 @@ library(finto)
 concepts <- search_concepts("sibelius")
 head(concepts)
 ```
-| uri                                    | type                                                   | prefLabel        | altLabel | lang | vocab |
-|----------------------------------------|--------------------------------------------------------|------------------|----------|------|-------|
-| [http://www.yso.fi/onto/koko/p91024](http://www.yso.fi/onto/koko/p91024) | skos:Concept, http://www.yso.fi/onto/mero-meta/Concept | Sibelius (junat) | NA       | fi   | koko  |
-| [http://www.yso.fi/onto/mero/m11156](http://www.yso.fi/onto/mero/m11156) | skos:Concept, http://www.yso.fi/onto/mero-meta/Concept | Sibelius (junat) | NA       | fi   | liiko |
-     
+
 
 
 ## Contribute

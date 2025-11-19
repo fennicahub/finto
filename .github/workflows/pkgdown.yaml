@@ -54,7 +54,7 @@ jobs:
           echo "      - 'Reference'" >> ./_pkgdown.yml
           echo "  links:" >> ./_pkgdown.yml
           echo "    - title: 'GitHub'" >> ./_pkgdown.yml
-          echo "      href: 'https://github.com/fennicahub/finna'" >> ./_pkgdown.yml
+          echo "      href: 'https://github.com/fennicahub/finto'" >> ./_pkgdown.yml
           echo "    - title: 'Reference'" >> ./_pkgdown.yml
           echo "      href: 'reference/index.html'" >> ./_pkgdown.yml
           echo "template:" >> ./_pkgdown.yml
