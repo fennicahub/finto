@@ -5,17 +5,11 @@
 <url><loc>/articles/vignette.html</loc></url>
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
-<url><loc>/reference/annif_batch_indexing.html</loc></url>
-<url><loc>/reference/annif_subject_indexing.html</loc></url>
 <url><loc>/reference/fetch_kanto_info.html</loc></url>
 <url><loc>/reference/fetch_profession_hierarchy.html</loc></url>
 <url><loc>/reference/fetch_profession_info.html</loc></url>
 <url><loc>/reference/finto_api_request.html</loc></url>
 <url><loc>/reference/get_alphabetical_index_letters.html</loc></url>
-<url><loc>/reference/get_annif_api_info.html</loc></url>
-<url><loc>/reference/get_annif_project_info.html</loc></url>
-<url><loc>/reference/get_annif_projects.html</loc></url>
-<url><loc>/reference/get_annif_vocabulary.html</loc></url>
 <url><loc>/reference/get_broader_concepts.html</loc></url>
 <url><loc>/reference/get_broader_transitive_concepts.html</loc></url>
 <url><loc>/reference/get_children_concepts.html</loc></url>
