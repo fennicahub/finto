@@ -50,14 +50,14 @@ jobs:
           echo "navbar:" > ./_pkgdown.yaml
           echo "  structure:" >> ./_pkgdown.yaml
           echo "    right:" >> ./_pkgdown.yaml
-          echo "      - 'GitHub'" >> ./_pkgdown.yaml
-          echo "      - 'Reference'" >> ./_pkgdown.yaml
-          echo "llm-docs: false" >> ./_pkgdown.yaml
+          echo "      - GitHub" >> ./_pkgdown.yaml
+          echo "      - Reference" >> ./_pkgdown.yaml
           echo "  links:" >> ./_pkgdown.yaml
-          echo "    - title: 'GitHub'" >> ./_pkgdown.yaml
-          echo "      href: 'https://github.com/fennicahub/finto'" >> ./_pkgdown.yaml
-          echo "    - title: 'Reference'" >> ./_pkgdown.yaml
-          echo "      href: 'reference/index.html'" >> ./_pkgdown.yaml
+          echo "    - title: GitHub" >> ./_pkgdown.yaml
+          echo "      href: https://github.com/fennicahub/finto" >> ./_pkgdown.yaml
+          echo "    - title: Reference" >> ./_pkgdown.yaml
+          echo "      href: reference/index.html" >> ./_pkgdown.yaml
+          echo "llm-docs: false" >> ./_pkgdown.yaml
           echo "template:" >> ./_pkgdown.yaml
           echo "  bootstrap: 5" >> ./_pkgdown.yaml
 
