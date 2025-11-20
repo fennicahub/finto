@@ -30,8 +30,7 @@ specified concept.
 ## Examples
 
 ``` r
-related <- get_related_concepts(vocid = "yso",
-uri = "http://www.yso.fi/onto/yso/p24489", lang = "fi")
+related <- get_related_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p24489", lang = "fi")
 print(related)
 #> # A tibble: 1 × 2
 #>   uri                              prefLabel

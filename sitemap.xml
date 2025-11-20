@@ -10,6 +10,9 @@
 <url><loc>/reference/fetch_profession_info.html</loc></url>
 <url><loc>/reference/finto_api_request.html</loc></url>
 <url><loc>/reference/get_alphabetical_index_letters.html</loc></url>
+<url><loc>/reference/get_annif_api_info.html</loc></url>
+<url><loc>/reference/get_annif_project_info.html</loc></url>
+<url><loc>/reference/get_annif_projects.html</loc></url>
 <url><loc>/reference/get_broader_concepts.html</loc></url>
 <url><loc>/reference/get_broader_transitive_concepts.html</loc></url>
 <url><loc>/reference/get_children_concepts.html</loc></url>
@@ -34,10 +37,10 @@
 <url><loc>/reference/get_vocabulary_data.html</loc></url>
 <url><loc>/reference/get_vocabulary_info.html</loc></url>
 <url><loc>/reference/get_vocabulary_statistics.html</loc></url>
-<url><loc>/reference/get_vocabulary_types.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/lookup_concept_by_label.html</loc></url>
 <url><loc>/reference/search_concepts.html</loc></url>
 <url><loc>/reference/search_vocabulary_concepts.html</loc></url>
+<url><loc>/reference/suggest_subjects.html</loc></url>
 </urlset>
 

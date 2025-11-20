@@ -79,8 +79,8 @@ A data frame containing search results with columns: `uri`, `type`,
 ## Examples
 
 ``` r
-concepts <- search_concepts(query = "sibelius", lang = "fi")
-#> Requesting URL: https://api.finto.fi/rest/v1/search?query=sibelius&lang=fi
+concepts <- search_concepts(query = "sibelius", lang = "fi", maxhits = 191)
+#> Requesting URL: https://api.finto.fi/rest/v1/search?query=sibelius&lang=fi&maxhits=191
 print(concepts)
 #> # A tibble: 2 × 7
 #>   uri                           type  prefLabel altLabel hiddenLabel lang  vocab

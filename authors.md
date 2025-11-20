@@ -10,13 +10,13 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/fennicahub/finto/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/fennicahub/finto/blob/finto/DESCRIPTION)
 
-Jeba A, Lahti L (2025). *finto: Access the 'Finto' API*. R package
-version 0.1.1, <https://fennicahub.github.io/finto/>.
+Jeba A, Lahti L (2025). *finto: What the Package Does (One Line, Title
+Case)*. R package version 0.1.1, <https://fennicahub.github.io/finto/>.
 
     @Manual{,
-      title = {finto: Access the 'Finto' API},
+      title = {finto: What the Package Does (One Line, Title Case)},
       author = {Akewak Jeba and Leo Lahti},
       year = {2025},
       note = {R package version 0.1.1},

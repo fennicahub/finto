@@ -30,8 +30,7 @@ for the specified concept.
 ## Examples
 
 ``` r
-children <- get_children_concepts(vocid = "yso",
-uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
+children <- get_children_concepts(vocid = "yso", uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 print(children)
 #> # A tibble: 21 × 3
 #>    uri                               prefLabel                      hasChildren

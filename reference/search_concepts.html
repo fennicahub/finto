@@ -29,7 +29,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Search for concepts in the Finto Skosmos API by query term with additional parameters</h1>
-      <small class="dont-index">Source: <a href="https://github.com/fennicahub/finto/blob/main/R/search_concepts.R" class="external-link"><code>R/search_concepts.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fennicahub/finto/blob/finto/R/search_concepts.R" class="external-link"><code>R/search_concepts.R</code></a></small>
       <div class="d-none name"><code>search_concepts.Rd</code></div>
     </div>
 
@@ -109,8 +109,8 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">concepts</span> <span class="op">&lt;-</span> <span class="fu">search_concepts</span><span class="op">(</span>query <span class="op">=</span> <span class="st">"sibelius"</span>, lang <span class="op">=</span> <span class="st">"fi"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting URL: https://api.finto.fi/rest/v1/search?query=sibelius&amp;lang=fi</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">concepts</span> <span class="op">&lt;-</span> <span class="fu">search_concepts</span><span class="op">(</span>query <span class="op">=</span> <span class="st">"sibelius"</span>, lang <span class="op">=</span> <span class="st">"fi"</span>, maxhits <span class="op">=</span> <span class="fl">191</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting URL: https://api.finto.fi/rest/v1/search?query=sibelius&amp;lang=fi&amp;maxhits=191</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">concepts</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   uri                           type  prefLabel altLabel hiddenLabel lang  vocab</span>

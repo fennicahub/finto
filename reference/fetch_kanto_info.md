@@ -31,15 +31,17 @@ A tibble containing the RDF data for the concept.
 concept_data <- fetch_kanto_info(asteriID = "000094320")
 #> Requesting URL: https://api.finto.fi/rest/v1/data?uri=http%3A%2F%2Furn.fi%2FURN%3ANBN%3Afi%3Aau%3Afinaf%3A000094320&format=application%2Fjson
 print(concept_data)
-#> # A tibble: 1 × 32
-#>   uri          type  prefLabel altLabel Person preferredNameOfPerson variantName
-#>   <chr>        <chr> <chr>     <chr>    <chr>  <chr>                 <chr>      
-#> 1 http://urn.… http… A:son-Lj… Ljungbe… NA     NA                    Ljungberg,…
-#> # ℹ 25 more variables: fullerFormOfName <chr>, hiddenLabel <chr>,
-#> #   authorizedAccessPoint <chr>, note <chr>, birthDate <chr>, deathDate <chr>,
-#> #   birthPlace <chr>, deathPlace <chr>, profession <chr>, language <chr>,
-#> #   title <chr>, relatedPersonOfPerson <chr>, country <chr>,
-#> #   periodOfActivityOfPerson <chr>, placeOfResidence <chr>,
-#> #   relatedPerson <chr>, placeAssociatedWithPerson <chr>,
-#> #   fieldOfActivityOfPerson <chr>, isni <chr>, source <chr>, …
+#> # A tibble: 6 × 22
+#>   uri   type  prefLabel altLabel hiddenLabel broader narrower related definition
+#>   <chr> <chr> <chr>     <chr>    <chr>       <chr>   <chr>    <chr>   <chr>     
+#> 1 http… NA    NA        NA       NA          NA      NA       NA      NA        
+#> 2 http… NA    NA        NA       NA          NA      NA       NA      NA        
+#> 3 http… NA    NA        NA       NA          NA      NA       NA      NA        
+#> 4 http… owl:… NA        NA       NA          NA      NA       NA      NA        
+#> 5 http… skos… NA        NA       NA          NA      NA       NA      NA        
+#> 6 http… http… A:son-Lj… Ljungbe… NA          NA      NA       NA      NA        
+#> # ℹ 13 more variables: scopeNote <chr>, example <chr>, historyNote <chr>,
+#> #   editorialNote <chr>, changeNote <chr>, profession <chr>, birthDate <chr>,
+#> #   deathDate <chr>, exactMatch <chr>, closeMatch <chr>, inScheme <chr>,
+#> #   created <chr>, modified <chr>
 ```

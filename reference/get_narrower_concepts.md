@@ -30,8 +30,7 @@ specified concept.
 ## Examples
 
 ``` r
-narrower_concepts <- get_narrower_concepts(vocid = "yso",
-uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
+narrower_concepts <- get_narrower_concepts(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p690", lang = "fi")
 print(narrower_concepts)
 #> # A tibble: 21 × 2
 #>    uri                               prefLabel                     

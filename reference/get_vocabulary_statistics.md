@@ -36,6 +36,6 @@ print(result)
 #> 1 Concepts      NA                                   NA       NA              NA
 #> 2 SubTypes      http://www.yso.fi/onto/yso-meta/Ind… Yksi…   821               0
 #> 3 SubTypes      http://www.yso.fi/onto/yso-meta/Hie… Hier…    81               0
-#> 4 SubTypes      http://www.yso.fi/onto/yso-meta/Con… Ylei… 30413               4
+#> 4 SubTypes      http://www.yso.fi/onto/yso-meta/Con… Ylei… 30407               4
 #> 5 ConceptGroups http://www.w3.org/2004/02/skos/core… Koko…   242              32
 ```

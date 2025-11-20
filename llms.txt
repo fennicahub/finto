@@ -65,10 +65,6 @@ exceptions.
 
 ## All functions
 
-- [`annif_batch_indexing()`](annif_batch_indexing.md) : Suggest subjects
-  for a batch (maximum 32 docs) via Annif REST API
-- [`annif_subject_indexing()`](annif_subject_indexing.md) : Suggest
-  subjects for a given text using the Annif REST API
 - [`fetch_kanto_info()`](fetch_kanto_info.md) : Fetch RDF data for a
   specific concept from the Finto Skosmos API using an asteriID
 - [`fetch_profession_hierarchy()`](fetch_profession_hierarchy.md) :
@@ -86,8 +82,6 @@ exceptions.
   information about a specific project from the Annif REST API
 - [`get_annif_projects()`](get_annif_projects.md) : Get a list of
   projects from the Annif REST API
-- [`get_annif_vocabulary()`](get_annif_vocabulary.md) : Get a list of
-  vocabulary from the Annif REST API
 - [`get_broader_concepts()`](get_broader_concepts.md) : Get broader
   concepts for a specific concept from the Finto Skosmos API
 - [`get_broader_transitive_concepts()`](get_broader_transitive_concepts.md)
@@ -142,8 +136,6 @@ exceptions.
 - [`get_vocabulary_statistics()`](get_vocabulary_statistics.md) : Get
   vocabulary statistics as a single tibble containing concepts,
   subtypes, and concept groups
-- [`get_vocabulary_types()`](get_vocabulary_types.md) : Get type
-  information for a Finto vocabulary
 - [`lookup_concept_by_label()`](lookup_concept_by_label.md) : Look up
   concepts by label in a specific vocabulary from the Finto Skosmos API
 - [`search_concepts()`](search_concepts.md) : Search for concepts in the
@@ -151,6 +143,8 @@ exceptions.
 - [`search_vocabulary_concepts()`](search_vocabulary_concepts.md) :
   Search for concepts and collections in a specific vocabulary from the
   Finto Skosmos API
+- [`suggest_subjects()`](suggest_subjects.md) : Suggest subjects for a
+  given text using the Annif REST API
 
 # Articles
 

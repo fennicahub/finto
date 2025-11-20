@@ -29,8 +29,7 @@ A tibble containing members associated with the specified concept group.
 ## Examples
 
 ``` r
-group_members_data <- get_group_members(vocid = "yso",
-uri = "http://www.yso.fi/onto/yso/p26580", lang = "fi")
+group_members_data <- get_group_members(vocid = "yso",uri = "http://www.yso.fi/onto/yso/p26580", lang = "fi")
 print(head(group_members_data))
 #>                                 uri      prefLabel isSuper hasMembers
 #> 1  http://www.yso.fi/onto/yso/p1191         aallot   FALSE      FALSE
