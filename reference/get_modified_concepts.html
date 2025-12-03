@@ -29,7 +29,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get modified concepts in a specific vocabulary from the Finto Skosmos API</h1>
-      <small class="dont-index">Source: <a href="https://github.com/fennicahub/finto/blob/finto/R/get_modified_concepts.R" class="external-link"><code>R/get_modified_concepts.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fennicahub/finto/blob/main/R/get_modified_concepts.R" class="external-link"><code>R/get_modified_concepts.R</code></a></small>
       <div class="d-none name"><code>get_modified_concepts.Rd</code></div>
     </div>
 
@@ -73,18 +73,18 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting URL: https://api.finto.fi/rest/v1/yso/modified?lang=fi&amp;limit=10</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    uri                                prefLabel                date             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> http://www.yso.fi/onto/yso/p20945  aakkoset                 2025-11-13T09:47…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> http://www.yso.fi/onto/yso/p40914  aktinium                 2025-11-19T11:13…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> http://www.yso.fi/onto/yso/p040817 alaleukaluu              2025-11-10T15:48…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> http://www.yso.fi/onto/yso/p40957  aldosteroni              2025-11-19T11:13…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> http://www.yso.fi/onto/yso/p40993  alfa-PVP                 2025-11-19T11:15…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> http://www.yso.fi/onto/yso/p40311  alkuperäiskansojen tieto 2025-11-05T13:18…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> http://www.yso.fi/onto/yso/p7397   aluetuet                 2025-11-11T13:32…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> http://www.yso.fi/onto/yso/p41045  aluset (esineet)         2025-11-19T13:15…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> http://www.yso.fi/onto/yso/p41044  alustat (ajoneuvot)      2025-11-19T13:16…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> http://www.yso.fi/onto/yso/p41023  anatomiset teatterit     2025-11-19T11:15…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    uri                                prefLabel                  date           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> http://www.yso.fi/onto/yso/p21085  henkilökohtaiset avustajat 2025-12-02T11:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> http://www.yso.fi/onto/yso/p12923  vammaisten avustajat       2025-12-02T12:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> http://www.yso.fi/onto/yso/p24111  vastuullisuus              2025-12-01T12:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> http://www.yso.fi/onto/yso/p20945  aakkoset                   2025-11-13T09:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> http://www.yso.fi/onto/yso/p40914  aktinium                   2025-11-19T11:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> http://www.yso.fi/onto/yso/p040817 alaleukaluu                2025-11-10T15:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> http://www.yso.fi/onto/yso/p40957  aldosteroni                2025-11-19T11:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> http://www.yso.fi/onto/yso/p40993  alfa-PVP                   2025-11-19T11:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> http://www.yso.fi/onto/yso/p40311  alkuperäiskansojen tieto   2025-11-05T13:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> http://www.yso.fi/onto/yso/p7397   aluetuet                   2025-11-11T13:…</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
