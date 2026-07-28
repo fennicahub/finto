@@ -10,4 +10,8 @@ utils::globalVariables(c("type", "author_ID","prefLabel", "isSuper", "hasMembers
                          "country_info",
                          "placeAssociatedWithPerson_info",
                          "relatedPersonOfPerson",
-                         "relatedPersonOfPerson_info"))
+                         "relatedPersonOfPerson_info",
+                         "title",
+                         "fieldOfActivityOfPerson",
+                         "relatedPerson",
+                         "language"))
