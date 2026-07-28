@@ -10,10 +10,12 @@ get_kanto(data)
 \item{data}{A dataframe containing an 'author_ID' column with values like "(FIN11)000069536".}
 }
 \value{
-A tibble with \code{author_ID}, RDF data, and extracted profession labels.
+A tibble with \code{author_ID}, RDF data, and resolved human-readable labels.
 }
 \description{
 This function extracts Asteri IDs from the 'author_ID' column as list,
 fetches RDF data from the Finto Skosmos API using those IDs,
-and returns a cleaned tibble with the retrieved metadata and profession labels.
+and returns a cleaned tibble with the retrieved metadata, profession
+labels, place labels, and related-person, title, language, and
+field-of-activity labels.
 }

@@ -2,12 +2,15 @@
 #'
 #' This function extracts Asteri IDs from the 'author_ID' column as list,
 #' fetches RDF data from the Finto Skosmos API using those IDs,
-#' and returns a cleaned tibble with the retrieved metadata and profession labels.
+#' and returns a cleaned tibble with the retrieved metadata, profession
+#' labels, place labels, and related-person, title, language, and
+#' field-of-activity labels.
 #'
 #' @param data A dataframe containing an 'author_ID' column with values like "(FIN11)000069536".
-#' @return A tibble with `author_ID`, RDF data, and extracted profession labels.
+#' @return A tibble with `author_ID`, RDF data, and resolved human-readable labels.
 #' @import dplyr purrr tibble stringr tidyr
 #' @importFrom dplyr mutate select rowwise filter distinct group_by ungroup distinct
+#' @importFrom purrr map map_chr
 #' @export
 get_kanto <- function(data) {
 
@@ -125,8 +128,23 @@ get_kanto <- function(data) {
     ) %>%
     tidyr::unnest_wider(relatedPersonOfPerson_info)
 
+  # ---- Step 7: Resolve title / fieldOfActivityOfPerson / relatedPerson / language ----
+  results_clean <- results_clean %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(
+      title_label                   = resolve_concept_list(title),
+      fieldOfActivityOfPerson_label = resolve_concept_list(fieldOfActivityOfPerson),
+      relatedPerson_label           = resolve_related_persons(relatedPerson)$relatedPersonOfPerson_prefLabel,
+      language_label                = resolve_language(language)
+    ) %>%
+    dplyr::ungroup()
+
   return(results_clean)
 }
+
+# =============================================================================
+# Helpers
+# =============================================================================
 
 # Helper: collapse repeated character values
 collapse_chr <- function(x) {
@@ -159,7 +177,6 @@ extract_place_info <- function(uri, prefix) {
   )
 }
 
-# Helper: from comma-separated Finaf URIs, get names in fi/en/sv
 # Helper: from comma-separated Finaf URIs, get only prefLabel
 resolve_related_persons <- function(uris_str) {
 
@@ -196,4 +213,54 @@ resolve_related_persons <- function(uris_str) {
   tibble::tibble(
     relatedPersonOfPerson_prefLabel = collapse_chr(lab_vec)
   )
+}
+
+# -------------------------------------------------------------------------
+# Helper: resolve a comma-separated list of Finto concept URIs to labels,
+# reusing fetch_profession_info(). Used for fieldOfActivityOfPerson and
+# title, which share the same comma-separated-URI structure as profession.
+# NOTE: title has not been confirmed to live in the same Finto vocabulary
+# that fetch_profession_info() queries -- if it's a different vocabulary,
+# this will safely return NA (wrapped in tryCatch) rather than error, but
+# it's worth spot-checking a few resolved title_label values against the
+# raw title URIs.
+resolve_concept_list <- function(uris_str, lang_col = "prefLabel_en") {
+
+  if (is.null(uris_str) || is.na(uris_str) || trimws(uris_str) == "") {
+    return(NA_character_)
+  }
+
+  uris <- strsplit(uris_str, ",\\s*")[[1]]
+
+  labs <- purrr::map_chr(uris, function(u) {
+    out <- tryCatch(fetch_profession_info(u), error = function(e) NULL)
+    if (is.null(out) || !(lang_col %in% names(out))) {
+      NA_character_
+    } else {
+      out[[lang_col]][1]
+    }
+  })
+
+  collapse_chr(labs)
+}
+
+# -------------------------------------------------------------------------
+# Helper: lexvo ISO 639-3 URIs -> language name
+# (e.g. "http://lexvo.org/id/iso639-3/fin" -> "Finnish")
+# Resolved locally via the ISOcodes package -- lexvo.org is a separate
+# authority from Finto/Skosmos, so this avoids an extra network dependency.
+resolve_language <- function(uri) {
+  if (is.null(uri) || is.na(uri) || uri == "") return(NA_character_)
+
+  code <- stringr::str_extract(uri, "[a-z]{3}$")
+  if (is.na(code)) return(NA_character_)
+
+  if (!requireNamespace("ISOcodes", quietly = TRUE)) {
+    # fallback if the package isn't installed: return the raw ISO code
+    return(code)
+  }
+
+  iso <- ISOcodes::ISO_639_3
+  lab <- iso$Name[iso$Id == code]
+  if (length(lab) == 0) code else lab[1]
 }
