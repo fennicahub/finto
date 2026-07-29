@@ -178,9 +178,11 @@ extract_place_info <- function(uri, prefix) {
 }
 
 # Helper: from comma-separated Finaf URIs, get only prefLabel
+# Helper: resolve a comma-separated list of URIs (YSO, MTS, or Finaf)
+# to human-readable labels. Uses get_concept_labels() for generic Finto URIs,
+# and fallback to fetch_kanto_info() for Finaf person authorities.
 resolve_related_persons <- function(uris_str) {
 
-  # Handle empty / NA
   if (is.null(uris_str) || is.na(uris_str) || trimws(uris_str) == "") {
     return(tibble::tibble(
       relatedPersonOfPerson_prefLabel = NA_character_
@@ -188,27 +190,38 @@ resolve_related_persons <- function(uris_str) {
   }
 
   uris <- strsplit(uris_str, ",\\s*")[[1]]
-  ids  <- stringr::str_extract(uris, "\\d{9}")   # Extract 9-digit Asteri IDs
 
-  lab_vec <- purrr::map_chr(
-    ids,
-    function(id) {
-      if (is.na(id)) return(NA_character_)
+  lab_vec <- purrr::map_chr(uris, function(u) {
 
-      out <- tryCatch(
-        fetch_kanto_info(id),
-        error = function(e) NULL
-      )
-
-      if (is.null(out) || nrow(out) == 0) {
-        NA_character_
-      } else if ("prefLabel" %in% names(out)) {
-        collapse_chr(out$prefLabel)
+    # 1) Try get_concept_labels (works for YSO, MTS, etc.)
+    lab <- tryCatch({
+      out <- get_concept_labels(uri = u, lang = "en")
+      if (!is.null(out) && "prefLabel" %in% names(out) && nrow(out) > 0) {
+        out$prefLabel[1]
       } else {
-        NA_character_
+        # fallback to Finnish
+        out <- get_concept_labels(uri = u, lang = "fi")
+        if (!is.null(out) && "prefLabel" %in% names(out) && nrow(out) > 0) {
+          out$prefLabel[1]
+        } else {
+          NA_character_
+        }
+      }
+    }, error = function(e) NA_character_)
+
+    # 2) If still NA, try treating it as a Finaf URI (with 9-digit ID)
+    if (is.na(lab)) {
+      id <- stringr::str_extract(u, "\\d{9}")
+      if (!is.na(id)) {
+        finaf_data <- tryCatch(fetch_kanto_info(id), error = function(e) NULL)
+        if (!is.null(finaf_data) && nrow(finaf_data) > 0 && "prefLabel" %in% names(finaf_data)) {
+          lab <- collapse_chr(finaf_data$prefLabel)
+        }
       }
     }
-  )
+
+    return(lab)
+  })
 
   tibble::tibble(
     relatedPersonOfPerson_prefLabel = collapse_chr(lab_vec)
@@ -216,15 +229,13 @@ resolve_related_persons <- function(uris_str) {
 }
 
 # -------------------------------------------------------------------------
-# Helper: resolve a comma-separated list of Finto concept URIs to labels,
-# reusing fetch_profession_info(). Used for fieldOfActivityOfPerson and
-# title, which share the same comma-separated-URI structure as profession.
-# NOTE: title has not been confirmed to live in the same Finto vocabulary
-# that fetch_profession_info() queries -- if it's a different vocabulary,
-# this will safely return NA (wrapped in tryCatch) rather than error, but
-# it's worth spot-checking a few resolved title_label values against the
-# raw title URIs.
-resolve_concept_list <- function(uris_str, lang_col = "prefLabel_en") {
+# Helper: resolve a comma-separated list of concept URIs (any vocabulary)
+# to labels, reusing the package's own get_concept_labels() -- already
+# vocabulary-agnostic, so this works for both mts (title) and yso
+# (fieldOfActivityOfPerson) URIs without needing a separate fetcher per
+# vocabulary. A row can have multiple URIs; each is resolved individually
+# and the labels are rejoined in the same order via collapse_chr().
+resolve_concept_list <- function(uris_str, lang = "en", fallback_lang = "fi") {
 
   if (is.null(uris_str) || is.na(uris_str) || trimws(uris_str) == "") {
     return(NA_character_)
@@ -233,11 +244,22 @@ resolve_concept_list <- function(uris_str, lang_col = "prefLabel_en") {
   uris <- strsplit(uris_str, ",\\s*")[[1]]
 
   labs <- purrr::map_chr(uris, function(u) {
-    out <- tryCatch(fetch_profession_info(u), error = function(e) NULL)
-    if (is.null(out) || !(lang_col %in% names(out))) {
+
+    out <- tryCatch(get_concept_labels(uri = u, lang = lang), error = function(e) NULL)
+
+    # Not every vocabulary has full language coverage (e.g. "mts" title
+    # concepts are mostly Finnish/Swedish only, no English) -- when the
+    # requested language has no label, get_concept_labels() omits the
+    # prefLabel column entirely rather than returning NA in it. Fall back
+    # to Finnish in that case.
+    if (is.null(out) || !("prefLabel" %in% names(out)) || nrow(out) == 0) {
+      out <- tryCatch(get_concept_labels(uri = u, lang = fallback_lang), error = function(e) NULL)
+    }
+
+    if (is.null(out) || !("prefLabel" %in% names(out)) || nrow(out) == 0) {
       NA_character_
     } else {
-      out[[lang_col]][1]
+      out$prefLabel[1]
     }
   })
 
